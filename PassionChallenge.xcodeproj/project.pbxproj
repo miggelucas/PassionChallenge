@@ -19,6 +19,7 @@
 		17EDEA1A28CFA67700421C42 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1928CFA67700421C42 /* HomeViewController.swift */; };
 		17EDEA1C28CFACB700421C42 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1B28CFACB700421C42 /* SearchViewController.swift */; };
 		17EDEA1E28CFAE6300421C42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1D28CFAE6300421C42 /* HomeView.swift */; };
+		17EDEA2028CFCBD900421C42 /* categoriesCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1F28CFCBD900421C42 /* categoriesCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		17EDEA1928CFA67700421C42 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		17EDEA1B28CFACB700421C42 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		17EDEA1D28CFAE6300421C42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		17EDEA1F28CFCBD900421C42 /* categoriesCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categoriesCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +83,17 @@
 				17EDEA0028CF9FE800421C42 /* ProfileViewController.swift */,
 				17EDEA1B28CFACB700421C42 /* SearchViewController.swift */,
 				17EDEA1D28CFAE6300421C42 /* HomeView.swift */,
+				17EDEA2128CFCBEC00421C42 /* Models */,
 			);
 			path = PassionChallenge;
+			sourceTree = "<group>";
+		};
+		17EDEA2128CFCBEC00421C42 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17EDEA1F28CFCBD900421C42 /* categoriesCellModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 				17EDEA1A28CFA67700421C42 /* HomeViewController.swift in Sources */,
 				17EDE9FD28CF9FE800421C42 /* AppDelegate.swift in Sources */,
 				17EDEA1828CFA60100421C42 /* TabBarViewController.swift in Sources */,
+				17EDEA2028CFCBD900421C42 /* categoriesCellModel.swift in Sources */,
 				17EDE9FF28CF9FE800421C42 /* SceneDelegate.swift in Sources */,
 				17EDEA1628CFA23300421C42 /* UIView+Preview.swift in Sources */,
 			);

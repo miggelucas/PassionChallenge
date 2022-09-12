@@ -15,9 +15,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.view = customView
+//        customView.categoriesCollectionDelegate = self
+//        customView.categoriesCollectionDataSource = self
         
         self.title = "Bom dia!"
-        self.title.
         
     }
 
