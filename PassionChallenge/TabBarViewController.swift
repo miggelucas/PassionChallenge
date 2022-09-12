@@ -11,12 +11,14 @@ class TabBarViewController: UITabBarController {
     
     let controllers: [UIViewController] = [
         HomeViewController(),
-        ViewController()
+        ProfileViewController(),
+        SearchViewController()
     ]
     
     let icons: [String] = [
         "house",
-        "music.note.list"
+        "music.note.list",
+        "magnifyingglass"
     ]
     
     var nagivationControllers: [UINavigationController] = []

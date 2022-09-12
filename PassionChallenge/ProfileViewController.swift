@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .blue
+        view.backgroundColor = .black
     }
 
 
@@ -25,12 +25,12 @@ class ViewController: UIViewController {
 import SwiftUI
 
 @available(iOS 13, *)
-struct ViewController_Preview: PreviewProvider {
+struct ProfileViewController_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            ViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
-            ViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
+            ProfileViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
+            ProfileViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
         }
     }
 }

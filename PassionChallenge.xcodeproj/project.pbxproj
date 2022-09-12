@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		17EDE9FD28CF9FE800421C42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDE9FC28CF9FE800421C42 /* AppDelegate.swift */; };
 		17EDE9FF28CF9FE800421C42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDE9FE28CF9FE800421C42 /* SceneDelegate.swift */; };
-		17EDEA0128CF9FE800421C42 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA0028CF9FE800421C42 /* ViewController.swift */; };
+		17EDEA0128CF9FE800421C42 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA0028CF9FE800421C42 /* ProfileViewController.swift */; };
 		17EDEA0728CF9FE800421C42 /* PassionChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA0528CF9FE800421C42 /* PassionChallenge.xcdatamodeld */; };
 		17EDEA0928CF9FE900421C42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17EDEA0828CF9FE900421C42 /* Assets.xcassets */; };
 		17EDEA0C28CF9FE900421C42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17EDEA0A28CF9FE900421C42 /* LaunchScreen.storyboard */; };
@@ -17,13 +17,15 @@
 		17EDEA1628CFA23300421C42 /* UIView+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1428CFA23300421C42 /* UIView+Preview.swift */; };
 		17EDEA1828CFA60100421C42 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1728CFA60100421C42 /* TabBarViewController.swift */; };
 		17EDEA1A28CFA67700421C42 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1928CFA67700421C42 /* HomeViewController.swift */; };
+		17EDEA1C28CFACB700421C42 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1B28CFACB700421C42 /* SearchViewController.swift */; };
+		17EDEA1E28CFAE6300421C42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1D28CFAE6300421C42 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17EDE9F928CF9FE800421C42 /* PassionChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassionChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EDE9FC28CF9FE800421C42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17EDE9FE28CF9FE800421C42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		17EDEA0028CF9FE800421C42 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		17EDEA0028CF9FE800421C42 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		17EDEA0628CF9FE800421C42 /* PassionChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PassionChallenge.xcdatamodel; sourceTree = "<group>"; };
 		17EDEA0828CF9FE900421C42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17EDEA0B28CF9FE900421C42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +34,8 @@
 		17EDEA1428CFA23300421C42 /* UIView+Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Preview.swift"; sourceTree = "<group>"; };
 		17EDEA1728CFA60100421C42 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		17EDEA1928CFA67700421C42 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		17EDEA1B28CFACB700421C42 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		17EDEA1D28CFAE6300421C42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,6 @@
 			children = (
 				17EDE9FC28CF9FE800421C42 /* AppDelegate.swift */,
 				17EDE9FE28CF9FE800421C42 /* SceneDelegate.swift */,
-				17EDEA0028CF9FE800421C42 /* ViewController.swift */,
 				17EDEA0828CF9FE900421C42 /* Assets.xcassets */,
 				17EDEA0A28CF9FE900421C42 /* LaunchScreen.storyboard */,
 				17EDEA0D28CF9FE900421C42 /* Info.plist */,
@@ -75,6 +78,9 @@
 				17EDEA1328CFA23300421C42 /* UIViewController+Preview.swift */,
 				17EDEA1728CFA60100421C42 /* TabBarViewController.swift */,
 				17EDEA1928CFA67700421C42 /* HomeViewController.swift */,
+				17EDEA0028CF9FE800421C42 /* ProfileViewController.swift */,
+				17EDEA1B28CFACB700421C42 /* SearchViewController.swift */,
+				17EDEA1D28CFAE6300421C42 /* HomeView.swift */,
 			);
 			path = PassionChallenge;
 			sourceTree = "<group>";
@@ -149,9 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17EDEA0128CF9FE800421C42 /* ViewController.swift in Sources */,
+				17EDEA0128CF9FE800421C42 /* ProfileViewController.swift in Sources */,
 				17EDEA0728CF9FE800421C42 /* PassionChallenge.xcdatamodeld in Sources */,
 				17EDEA1528CFA23300421C42 /* UIViewController+Preview.swift in Sources */,
+				17EDEA1E28CFAE6300421C42 /* HomeView.swift in Sources */,
+				17EDEA1C28CFACB700421C42 /* SearchViewController.swift in Sources */,
 				17EDEA1A28CFA67700421C42 /* HomeViewController.swift in Sources */,
 				17EDE9FD28CF9FE800421C42 /* AppDelegate.swift in Sources */,
 				17EDEA1828CFA60100421C42 /* TabBarViewController.swift in Sources */,
