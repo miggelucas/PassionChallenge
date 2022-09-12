@@ -21,7 +21,7 @@ class TabBarViewController: UITabBarController {
         "magnifyingglass"
     ]
     
-    var nagivationControllers: [UINavigationController] = []
+    var navigationControllers: [UINavigationController] = []
     
 
     override func viewDidLoad() {
@@ -33,9 +33,10 @@ class TabBarViewController: UITabBarController {
         controllers.enumerated().forEach{ (index, viewController) in
             let navigation = UINavigationController(rootViewController: viewController)
             navigation.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(systemName: icons[index]), tag: 1)
-            self.nagivationControllers.append(navigation)
+            navigation.navigationBar.prefersLargeTitles = true
+            self.navigationControllers.append(navigation)
         }
-        self.setViewControllers(self.nagivationControllers, animated: true)
+        self.setViewControllers(self.navigationControllers, animated: true)
     }
 
 

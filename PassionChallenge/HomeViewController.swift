@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
         
         self.view = customView
         
+        self.title = "Bom dia!"
+        self.title.
         
     }
 

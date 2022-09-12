@@ -11,8 +11,22 @@ import UIKit
 
 class HomeView : UIView {
     
+    // inicializando componentes
     let backgroundView = UIImageView()
     
+    let greetingLabel = UILabel()
+    let categoriesLabel = UILabel()
+    //let categoriesCollection = UICollectionView()
+    
+    let nearToYouLabel = UILabel()
+    let seeMoreButton = UIButton()
+    //let nearToYouCollection = UICollectionView()
+    
+    //let bestPicksCollection = UICollectionView()
+    
+    // inicializando views
+    
+    // containers
     
     
 }
