@@ -66,6 +66,9 @@ class HomeView : UIView {
     }
     
     func setupViewAttributes (){
+        backgroundView.image = UIImage(named: "Background2")
+        backgroundView.contentMode = .scaleAspectFill
+        
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fillEqually
@@ -86,8 +89,7 @@ class HomeView : UIView {
         nearToYouStackView.spacing = 10
         
         
-        backgroundView.image = UIImage(named: "Background2")
-        backgroundView.contentMode = .scaleAspectFill
+       
         
         categoriesLabel.text = "O que deseja conhecer hoje?"
         categoriesView.backgroundColor = .black
