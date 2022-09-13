@@ -35,16 +35,20 @@ class HomeView : UIView {
     
     public var categoriesCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 50, height: 50)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.itemSize = CGSize(width: 81, height: 91)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 16)
         layout.scrollDirection = .horizontal
+        
         let collection =  UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collection.backgroundColor = .brown
+        collection.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: "categoriesCell")
+        collection.backgroundColor = .clear
         return collection
     }()
         
+    
+    //public var nearToYouCollection : UICollectionView
+    
 //    let nearToYouCollection = UICollectionView()
 //    var nearToYoutubeCollection: UICollectionView = {
 //        let collection =  UICollectionView()
@@ -136,8 +140,8 @@ class HomeView : UIView {
             categoriesStackView.topAnchor.constraint(equalTo: primaryStackView.topAnchor, constant: 0),
             categoriesStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             categoriesStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            categoriesLabel.heightAnchor.constraint(equalToConstant: 19),
-            categoriesView.heightAnchor.constraint(equalToConstant: 100)
+//            categoriesLabel.heightAnchor.constraint(equalToConstant: 19),
+//            categoriesView.heightAnchor.constraint(equalToConstant: 100)
 
         ])
         
@@ -186,8 +190,8 @@ struct homeView_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            TabBarViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
-            TabBarViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
+            HomeView().showPreview().previewDevice("iPhone SE (3rd generation)")
+            HomeView().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
         }
     }
 }

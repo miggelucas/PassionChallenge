@@ -16,9 +16,9 @@ class TabBarViewController: UITabBarController {
     ]
     
     let icons: [String] = [
-        "house",
-        "music.note.list",
-        "magnifyingglass"
+        "Discover",
+        "Profile",
+        "Buscar"
     ]
     
     let titlesNames : [String] = [
@@ -38,7 +38,7 @@ class TabBarViewController: UITabBarController {
     func setupTabBarController(){
         controllers.enumerated().forEach{ (index, viewController) in
             let navigation = UINavigationController(rootViewController: viewController)
-            navigation.tabBarItem = UITabBarItem(title: titlesNames[index], image: UIImage(systemName: icons[index]), tag: 1)
+            navigation.tabBarItem = UITabBarItem(title: titlesNames[index], image: UIImage(named: icons[index]), tag: 1)
             navigation.navigationBar.prefersLargeTitles = true
             self.navigationControllers.append(navigation)
         }

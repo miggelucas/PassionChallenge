@@ -10,10 +10,22 @@ import UIKit
 class HomeViewController: UIViewController {
     
     let customView = HomeView()
+    
+    var categories : [Categorie] = [
+        Categorie(imageString: "ImageArtesanato", name: "Artesanato"),
+        Categorie(imageString: "ImageCulinaria", name: "Culinária"),
+        Categorie(imageString: "ImageLiteratura", name: "Literatura"),
+        Categorie(imageString: "ImageMusica", name: "Música"),
+        Categorie(imageString: "ImageHistoria", name: "História"),
+        Categorie(imageString: "ImageCinema", name: "Cinema"),
+        Categorie(imageString: "ImageTeatro", name: "Teatro"),
+        Categorie(imageString: "ImageAoArLivre", name: "Ar Livre"),
+        ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
+        
         customView.categoriesCollection.delegate = self
         customView.categoriesCollection.dataSource = self
         
@@ -30,13 +42,26 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 4
     }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         print("ENTROU AQUI")
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .green
+        
+        // iniciando componemtes
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoriesCell", for: indexPath) as! CategoriesCollectionViewCell
+        let categorieIndex = categories[indexPath.item]
+        print (indexPath)
+        
+        // implementar cel
+        cell.imageView.image = UIImage(named: categorieIndex.imageString)
+        cell.label.text = categorieIndex.name
+        
         return cell
     }
 

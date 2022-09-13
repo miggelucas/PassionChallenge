@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ButtonBrBusca.png",
+      "filename" : "Buscar.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ButtonBrBusca@2x.png",
+      "filename" : "Buscar@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ButtonBrBusca@3x.png",
+      "filename" : "Buscar@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
