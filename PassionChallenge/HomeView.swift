@@ -14,17 +14,13 @@ class HomeView : UIView {
     // inicializando componentes
     let backgroundView = UIImageView()
     
-    
-
     let categoriesLabel = UILabel()
     
-    
+    // placeholder while we figure out how to do the collections
     let categoriesView = UIView()
-    
 //    let categoriesCollection = UICollectionView()
 //    weak var categoriesCollectionDelegate: UICollectionViewDelegate?
 //    weak var categoriesCollectionDataSource: UICollectionViewDataSource?
-    
     
     let nearToLabel = UILabel()
     let seeMoreButton = UIButton()
@@ -37,20 +33,15 @@ class HomeView : UIView {
     
     let categoriesStackView = UIStackView()
         
-    
     //let nearToYouCollection = UICollectionView()
     
     //let bestPicksCollection = UICollectionView()
     
-    // inicializando views
-    
-    // containers
     
     func setupViewHierarchy(){
         
-        addSubview(backgroundView)
-        addSubview(primaryStackView)
-        
+        self.addSubview(backgroundView)
+        self.addSubview(primaryStackView)
         
         categoriesStackView.addArrangedSubview(categoriesLabel)
         //categoriesStackView.addArrangedSubview(categoriesCollection)
@@ -63,33 +54,36 @@ class HomeView : UIView {
         nearToYouStackView.addArrangedSubview(nearToView)
         
         primaryStackView.addArrangedSubview(categoriesStackView)
+        primaryStackView.addArrangedSubview(nearToYouStackView)
+    
+
     }
     
-    func setupViewAttributes (){
-        backgroundView.image = UIImage(named: "Background2")
-        backgroundView.contentMode = .scaleAspectFill
+    func setupViewAttributes() {
+        self.backgroundColor = .red
         
+        backgroundView.image = UIImage(named: "Background")
+        backgroundView.contentMode = .scaleToFill
+    
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fillEqually
-        primaryStackView.spacing = 0
+        primaryStackView.spacing = 5
         
         categoriesStackView.axis = .vertical
-        categoriesStackView.alignment = .fill
+        categoriesStackView.alignment = .leading
         categoriesStackView.distribution = .fillEqually
-        categoriesStackView.spacing = 10
-        
+        categoriesStackView.spacing = 1
+    
         nearLabelButtonStackView.axis = .horizontal
-        nearLabelButtonStackView.alignment = .fill
-        nearLabelButtonStackView.distribution = .fillEqually
+        nearLabelButtonStackView.alignment = .top
+        nearLabelButtonStackView.distribution = .fillProportionally
         
         nearToYouStackView.axis = .vertical
         nearToYouStackView.alignment = .fill
         nearToYouStackView.distribution = .fillEqually
-        nearToYouStackView.spacing = 10
-        
-        
-       
+        nearToYouStackView.spacing = 1
+    
         
         categoriesLabel.text = "O que deseja conhecer hoje?"
         categoriesView.backgroundColor = .black
@@ -97,6 +91,7 @@ class HomeView : UIView {
         nearToLabel.text = "Perto de você"
         seeMoreButton.setTitle("veja mais", for: .normal)
         nearToView.backgroundColor = .orange
+        
         
     }
     
@@ -111,28 +106,33 @@ class HomeView : UIView {
         
         primaryStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            primaryStackView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            primaryStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            primaryStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            primaryStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             primaryStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             primaryStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
         
         categoriesStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            categoriesStackView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            categoriesStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            categoriesStackView.topAnchor.constraint(equalTo: primaryStackView.topAnchor, constant: 0),
             categoriesStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            categoriesStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+            categoriesStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            categoriesLabel.heightAnchor.constraint(equalToConstant: 19),
+            categoriesView.heightAnchor.constraint(equalToConstant: 100)
+
         ])
+
+        nearLabelButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         
-//        nearToYouStackView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            nearToYouStackView.topAnchor.constraint(equalTo: categoriesView.topAnchor, constant: 0),
-//            nearToYouStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-//            nearToYouStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-//            nearToYouStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-//        ])
         
+        nearToYouStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            nearToYouStackView.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 0),
+            nearToYouStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
+            nearToYouStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            nearToYouStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+//
         
     }
     

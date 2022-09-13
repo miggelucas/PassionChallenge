@@ -21,6 +21,12 @@ class TabBarViewController: UITabBarController {
         "magnifyingglass"
     ]
     
+    let titlesNames : [String] = [
+        "Descubra",
+        "Perfil",
+        "Pesquisar"
+    ]
+    
     var navigationControllers: [UINavigationController] = []
     
 
@@ -32,7 +38,7 @@ class TabBarViewController: UITabBarController {
     func setupTabBarController(){
         controllers.enumerated().forEach{ (index, viewController) in
             let navigation = UINavigationController(rootViewController: viewController)
-            navigation.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(systemName: icons[index]), tag: 1)
+            navigation.tabBarItem = UITabBarItem(title: titlesNames[index], image: UIImage(systemName: icons[index]), tag: 1)
             navigation.navigationBar.prefersLargeTitles = true
             self.navigationControllers.append(navigation)
         }
