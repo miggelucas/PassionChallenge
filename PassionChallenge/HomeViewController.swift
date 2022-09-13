@@ -9,19 +9,37 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let customView : UIView = HomeView()
+    let customView = HomeView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view = customView
+        customView.categoriesCollection.delegate = self
+        customView.categoriesCollection.dataSource = self
         
+//        customView.categoriesCollection.delegate = self
+        
+        
+//        customView.categoriesCollectionDelegate = self
+//        customView.categoriesCollectionDataSource = self
+        
+        self.title = "Bom dia!"
         
     }
+}
 
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
     
-    
-    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("ENTROU AQUI")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .green
+        return cell
+    }
+
 }
 
 
@@ -34,8 +52,8 @@ struct HomeViewController_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            ProfileViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
-            ProfileViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
+            HomeViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
+            HomeViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
         }
     }
 }
