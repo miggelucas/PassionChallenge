@@ -87,7 +87,7 @@ class HomeView : UIView {
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fillProportionally
-        primaryStackView.spacing = 5
+        primaryStackView.spacing = 10
 
         categoriesStackView.axis = .vertical
         categoriesStackView.alignment = .fill
@@ -102,13 +102,16 @@ class HomeView : UIView {
         nearToYouStackView.axis = .vertical
         nearToYouStackView.alignment = .fill
         nearToYouStackView.distribution = .fill
-        nearToYouStackView.spacing = 1
+        nearToYouStackView.spacing = 10
 
 
         categoriesLabel.text = "O que deseja conhecer hoje?"
 
         nearToLabel.text = "Perto de você"
+        nearToLabel.backgroundColor = .red
         seeMoreButton.setTitle("veja mais", for: .normal)
+        seeMoreButton.setTitleColor(.orange, for: .normal)
+        seeMoreButton.backgroundColor = .gray
         nearToView.backgroundColor = .orange
         
         

@@ -39,10 +39,25 @@ class TabBarViewController: UITabBarController {
         controllers.enumerated().forEach{ (index, viewController) in
             let navigation = UINavigationController(rootViewController: viewController)
             navigation.tabBarItem = UITabBarItem(title: titlesNames[index], image: UIImage(named: icons[index]), tag: 1)
+           
             navigation.navigationBar.prefersLargeTitles = true
+            
+            
             self.navigationControllers.append(navigation)
         }
+        
+        
+        for i in 0...titlesNames.count {
+            self.tabBar.items?[i].title = titlesNames[i]
+        }
+        
+        self.tabBar.unselectedItemTintColor = UIColor(named: "Light Gray Blue")
+        self.tabBar.tintColor = .orange
+        
+
+        
         self.setViewControllers(self.navigationControllers, animated: true)
+        
     }
 
 

@@ -11,16 +11,7 @@ class HomeViewController: UIViewController {
     
     let customView = HomeView()
     
-    var categories : [Categorie] = [
-        Categorie(imageString: "ImageArtesanato", name: "Artesanato"),
-        Categorie(imageString: "ImageCulinaria", name: "Culinária"),
-        Categorie(imageString: "ImageLiteratura", name: "Literatura"),
-        Categorie(imageString: "ImageMusica", name: "Música"),
-        Categorie(imageString: "ImageHistoria", name: "História"),
-        Categorie(imageString: "ImageCinema", name: "Cinema"),
-        Categorie(imageString: "ImageTeatro", name: "Teatro"),
-        Categorie(imageString: "ImageAoArLivre", name: "Ar Livre"),
-        ]
+    let categories = Categorie.getCategories()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,16 +44,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //print("ENTROU AQUI")
         
-        // iniciando componemtes
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as! CategoriesCollectionViewCell
-        let categorieIndex = categories[indexPath.item] 
-        print (indexPath)
-        
-        // implementar cel
-        cell.imageView.image = UIImage(named: categorieIndex.imageString)
-        cell.label.text = categorieIndex.name
-        
-        return cell
+    
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as? CategoriesCollectionViewCell {
+            
+            let categorieIndex = categories[indexPath.item]
+            print (indexPath)
+            
+            // implementar cel
+            cell.imageView.image = UIImage(named: categorieIndex.imageString)
+            cell.label.text = categorieIndex.name
+            
+            return cell
+
+        }
+
+        return UICollectionViewCell()
     }
 
 }
