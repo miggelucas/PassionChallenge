@@ -28,12 +28,12 @@ class HomeView : UIView {
         return collection
     }()
     
-    let nearToLabel = UILabel()
+    let recomendationLabel = UILabel()
     let seeMoreButton = UIButton()
-    let nearToView = UIView()
+    let recomendationView = UIView()
     
-    let nearLabelButtonStackView = UIStackView()
-    let nearToYouStackView = UIStackView()
+    let recomendationLabelButtonStackView = UIStackView()
+    let recomendationStackView = UIStackView()
     
     let primaryStackView = UIStackView()
     
@@ -44,14 +44,22 @@ class HomeView : UIView {
     
     //public var nearToYouCollection : UICollectionView
     
-//    let nearToYouCollection = UICollectionView()
-//    var nearToYoutubeCollection: UICollectionView = {
-//        let collection =  UICollectionView()
-//        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-//        return collection
-//    }()
+   
+    var recomendationCollection: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 336, height: 209)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
+        layout.scrollDirection = .horizontal
+        
+        let collection =  UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsHorizontalScrollIndicator = false
+        collection.register(RecomendationCollectionViewCell.self, forCellWithReuseIdentifier:
+RecomendationCollectionViewCell.identifier)
+        collection.backgroundColor = .white
+        return collection
+    }()
     
-//    let bestPicksCollection = UICollectionView()
+  //  let bestPicksCollection = UICollectionView()
     
     
     func setupViewHierarchy(){
@@ -65,14 +73,14 @@ class HomeView : UIView {
         categoriesStackView.addArrangedSubview(categoriesCollection)
 
 
-        nearLabelButtonStackView.addArrangedSubview(nearToLabel)
-        nearLabelButtonStackView.addArrangedSubview(seeMoreButton)
+        recomendationLabelButtonStackView.addArrangedSubview(recomendationLabel)
+        recomendationLabelButtonStackView.addArrangedSubview(seeMoreButton)
 //
-        nearToYouStackView.addArrangedSubview(nearLabelButtonStackView)
-        nearToYouStackView.addArrangedSubview(nearToView)
+        recomendationStackView.addArrangedSubview(recomendationLabelButtonStackView)
+        recomendationStackView.addArrangedSubview(recomendationCollection)
 
         primaryStackView.addArrangedSubview(categoriesStackView)
-        primaryStackView.addArrangedSubview(nearToYouStackView)
+        primaryStackView.addArrangedSubview(recomendationStackView)
 
     }
     
@@ -95,24 +103,24 @@ class HomeView : UIView {
         categoriesStackView.spacing = 10
 
 
-        nearLabelButtonStackView.axis = .horizontal
-        nearLabelButtonStackView.alignment = .fill
-        nearLabelButtonStackView.distribution = .fill
+        recomendationLabelButtonStackView.axis = .horizontal
+        recomendationLabelButtonStackView.alignment = .fill
+        recomendationLabelButtonStackView.distribution = .fill
 //
-        nearToYouStackView.axis = .vertical
-        nearToYouStackView.alignment = .fill
-        nearToYouStackView.distribution = .fill
-        nearToYouStackView.spacing = 10
+        recomendationStackView.axis = .vertical
+        recomendationStackView.alignment = .fill
+        recomendationStackView.distribution = .fill
+        recomendationStackView.spacing = 10
 
 
         categoriesLabel.text = "O que deseja conhecer hoje?"
 
-        nearToLabel.text = "Perto de você"
-        nearToLabel.backgroundColor = .red
+        recomendationLabel.text = "Perto de você"
+        recomendationLabel.backgroundColor = .red
         seeMoreButton.setTitle("veja mais", for: .normal)
         seeMoreButton.setTitleColor(.orange, for: .normal)
         seeMoreButton.backgroundColor = .gray
-        nearToView.backgroundColor = .orange
+        recomendationView.backgroundColor = .orange
         
         
     }
