@@ -19,12 +19,12 @@ class HomeView : UIView {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 81, height: 91)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         
         let collection =  UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
         collection.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: CategoriesCollectionViewCell.identifier)
-        collection.backgroundColor = .clear 
+        collection.backgroundColor = .clear
         return collection
     }()
     
