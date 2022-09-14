@@ -25,6 +25,9 @@
 		17EDEA2028CFCBD900421C42 /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1F28CFCBD900421C42 /* CategoriesModel.swift */; };
 		17EDEA4328D10C7E00421C42 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA4228D10C7E00421C42 /* CategoriesCollectionViewCell.swift */; };
 		17EDEA4728D2115700421C42 /* Categoires+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA4628D2115700421C42 /* Categoires+Extension.swift */; };
+		4FD8A3CF28D2470C00967E5C /* SeeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8A3CE28D2470C00967E5C /* SeeMoreViewController.swift */; };
+		4FD8A3D128D2479B00967E5C /* SeeMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8A3D028D2479B00967E5C /* SeeMoreView.swift */; };
+		4FD8A3D528D2492B00967E5C /* SeeMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8A3D428D2492B00967E5C /* SeeMoreTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		17EDEA1F28CFCBD900421C42 /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 		17EDEA4228D10C7E00421C42 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		17EDEA4628D2115700421C42 /* Categoires+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categoires+Extension.swift"; sourceTree = "<group>"; };
+		4FD8A3CE28D2470C00967E5C /* SeeMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreViewController.swift; sourceTree = "<group>"; };
+		4FD8A3D028D2479B00967E5C /* SeeMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreView.swift; sourceTree = "<group>"; };
+		4FD8A3D428D2492B00967E5C /* SeeMoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 				17EDEA1928CFA67700421C42 /* HomeViewController.swift */,
 				17EDEA0028CF9FE800421C42 /* ProfileViewController.swift */,
 				17EDEA1B28CFACB700421C42 /* SearchViewController.swift */,
+				4FD8A3CE28D2470C00967E5C /* SeeMoreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -90,6 +97,8 @@
 				17EDEA4228D10C7E00421C42 /* CategoriesCollectionViewCell.swift */,
 				1762A46E28D24032007765F3 /* RecomendationCollectionViewCell.swift */,
 				17EDEA0A28CF9FE900421C42 /* LaunchScreen.storyboard */,
+				4FD8A3D028D2479B00967E5C /* SeeMoreView.swift */,
+				4FD8A3D428D2492B00967E5C /* SeeMoreTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,12 +224,15 @@
 				1762A46B28D2386F007765F3 /* Place.swift in Sources */,
 				17EDEA1A28CFA67700421C42 /* HomeViewController.swift in Sources */,
 				17EDEA4328D10C7E00421C42 /* CategoriesCollectionViewCell.swift in Sources */,
+				4FD8A3D528D2492B00967E5C /* SeeMoreTableViewCell.swift in Sources */,
+				4FD8A3CF28D2470C00967E5C /* SeeMoreViewController.swift in Sources */,
 				17EDE9FD28CF9FE800421C42 /* AppDelegate.swift in Sources */,
 				17EDEA1828CFA60100421C42 /* TabBarViewController.swift in Sources */,
 				17EDEA2028CFCBD900421C42 /* CategoriesModel.swift in Sources */,
 				17EDEA4728D2115700421C42 /* Categoires+Extension.swift in Sources */,
 				17EDE9FF28CF9FE800421C42 /* SceneDelegate.swift in Sources */,
 				17EDEA1628CFA23300421C42 /* UIView+Preview.swift in Sources */,
+				4FD8A3D128D2479B00967E5C /* SeeMoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +371,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 749Q737TF5;
+				DEVELOPMENT_TEAM = 3L83X3262C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassionChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -386,7 +398,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 749Q737TF5;
+				DEVELOPMENT_TEAM = 3L83X3262C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassionChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
