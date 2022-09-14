@@ -24,7 +24,7 @@ class HomeView : UIView {
         let collection =  UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
         collection.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: CategoriesCollectionViewCell.identifier)
-        collection.backgroundColor = .brown
+        collection.backgroundColor = .clear 
         return collection
     }()
     
@@ -55,7 +55,7 @@ class HomeView : UIView {
         collection.showsHorizontalScrollIndicator = false
         collection.register(RecomendationCollectionViewCell.self, forCellWithReuseIdentifier:
 RecomendationCollectionViewCell.identifier)
-        collection.backgroundColor = .white
+        collection.backgroundColor = .clear
         return collection
     }()
     
@@ -67,7 +67,7 @@ RecomendationCollectionViewCell.identifier)
         self.addSubview(backgroundView)
         self.addSubview(primaryStackView)
         
-        primaryStackView.backgroundColor = .yellow
+        //primaryStackView.backgroundColor = .yellow
 
         categoriesStackView.addArrangedSubview(categoriesLabel)
         categoriesStackView.addArrangedSubview(categoriesCollection)

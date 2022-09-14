@@ -50,7 +50,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as? CategoriesCollectionViewCell {
                 
                 let categorieIndex = categories[indexPath.item]
-                print (indexPath)
                 
                 // implementar função Draw
                 cell.imageView.image = UIImage(named: categorieIndex.imageString)

@@ -16,52 +16,75 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
     let nameLabel = UILabel()
     let adressLabel = UILabel()
     
+    let primartStackView = UIStackView()
     let labelsStackView = UIStackView()
-    //let primartStackView = UIStackView()
     
+    
+    let labelsContainer = UIView()
     // definindo hierarquia de view
     
     func setupViewHierarchy(){
-        self.addSubview(imageView)
-        self.addSubview(labelsStackView)
-
+        self.addSubview(primartStackView)
+        
+        primartStackView.addArrangedSubview(imageView)
+        primartStackView.addArrangedSubview(labelsContainer)
+        
+        labelsContainer.addSubview(labelsStackView)
+        
         labelsStackView.addArrangedSubview(nameLabel)
         labelsStackView.addArrangedSubview(adressLabel)
-        
+
     }
     
     func setupViewAttributes(){
+        
+        // primary setup
+        primartStackView.axis = .vertical
+        primartStackView.alignment = .fill
+        primartStackView.distribution = .fillProportionally
+        primartStackView.spacing = 0
+        
+        
+        // labes setup
         labelsStackView.axis = .vertical
         labelsStackView.alignment = .fill
-        labelsStackView.distribution = .fill
+        labelsStackView.distribution = .fillProportionally
         labelsStackView.spacing = 2
+        //labelsStackView.backgroundColor = .red
+    
 
-        nameLabel.font = nameLabel.font.withSize(14)
-        nameLabel.textColor = .white
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
+    
+        nameLabel.textColor = UIColor(named: "systemBackground")
 
-        adressLabel.font = adressLabel.font.withSize(14)
-        adressLabel.textColor = .white
+        adressLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        adressLabel.textColor = UIColor(named: "systemBackground")
         
         imageView.contentMode = .scaleToFill
-        //backgroundColor = .blue
+        labelsContainer.backgroundColor = UIColor(named: "Light Gray Blue")
     }
     
     
     func setupConstraints(){
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        primartStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            
+            primartStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            primartStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            primartStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            primartStackView.topAnchor.constraint(equalTo: self.topAnchor)
         ])
         
         labelsStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            labelsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 6),
-            labelsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6),
-            labelsStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 6)
+            labelsStackView.topAnchor.constraint(equalTo: labelsContainer.topAnchor, constant: 6),
+            labelsStackView.bottomAnchor.constraint(equalTo: labelsContainer.bottomAnchor, constant: -6),
+            labelsStackView.trailingAnchor.constraint(equalTo: labelsContainer.trailingAnchor, constant: -6),
+            labelsStackView.leadingAnchor.constraint(equalTo: labelsContainer.leadingAnchor, constant: 6)
+        ])
+        
+        labelsContainer.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            labelsContainer.heightAnchor.constraint(equalToConstant: 47)
         ])
     }
     
