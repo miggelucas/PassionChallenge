@@ -8,6 +8,8 @@
 import UIKit
 
 class CategoriesCollectionViewCell: UICollectionViewCell {
+    static let identifier : String = "categoriesCell"
+    
     // iniciando componentes
     let imageView = UIImageView()
     let label = UILabel()
@@ -69,6 +71,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         setupViewHierarchy()
         setupViewAttributes()
         setupConstraints()
+        
     }
     
     required init?(coder: NSCoder) {

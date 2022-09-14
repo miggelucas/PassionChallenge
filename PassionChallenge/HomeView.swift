@@ -15,12 +15,18 @@ class HomeView : UIView {
     let backgroundView = UIImageView()
     
     let categoriesLabel = UILabel()
-    
-    // placeholder while we figure out how to do the collections
-    let categoriesView = UIView()
-//    let categoriesCollection = UICollectionView()
-//    weak var categoriesCollectionDelegate: UICollectionViewDelegate?
-//    weak var categoriesCollectionDataSource: UICollectionViewDataSource?
+    var categoriesCollection: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 81, height: 91)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
+        layout.scrollDirection = .vertical
+        
+        let collection =  UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsHorizontalScrollIndicator = false
+        collection.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: CategoriesCollectionViewCell.identifier)
+        collection.backgroundColor = .brown
+        return collection
+    }()
     
     let nearToLabel = UILabel()
     let seeMoreButton = UIButton()
@@ -33,18 +39,7 @@ class HomeView : UIView {
     
     let categoriesStackView = UIStackView()
     
-    public var categoriesCollection: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 81, height: 91)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 16)
-        layout.scrollDirection = .horizontal
-        
-        let collection =  UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.showsHorizontalScrollIndicator = false
-        collection.register(CategoriesCollectionViewCell.self, forCellWithReuseIdentifier: "categoriesCell")
-        collection.backgroundColor = .clear
-        return collection
-    }()
+
         
     
     //public var nearToYouCollection : UICollectionView
@@ -64,16 +59,15 @@ class HomeView : UIView {
         self.addSubview(backgroundView)
         self.addSubview(primaryStackView)
         
-//        primaryStackView.backgroundColor = .yellow
+        primaryStackView.backgroundColor = .yellow
 
         categoriesStackView.addArrangedSubview(categoriesLabel)
         categoriesStackView.addArrangedSubview(categoriesCollection)
-        
-        categoriesStackView.addArrangedSubview(categoriesView)
+
 
         nearLabelButtonStackView.addArrangedSubview(nearToLabel)
         nearLabelButtonStackView.addArrangedSubview(seeMoreButton)
-
+//
         nearToYouStackView.addArrangedSubview(nearLabelButtonStackView)
         nearToYouStackView.addArrangedSubview(nearToView)
 
@@ -88,28 +82,30 @@ class HomeView : UIView {
         backgroundView.image = UIImage(named: "Background")
         backgroundView.contentMode = .scaleToFill
 
+        categoriesLabel.backgroundColor = .blue
+        
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
-        primaryStackView.distribution = .fillEqually
+        primaryStackView.distribution = .fillProportionally
         primaryStackView.spacing = 5
 
         categoriesStackView.axis = .vertical
-        categoriesStackView.alignment = .leading
-        categoriesStackView.distribution = .fillEqually
-        categoriesStackView.spacing = 1
+        categoriesStackView.alignment = .fill
+        categoriesStackView.distribution = .fill
+        categoriesStackView.spacing = 10
+
 
         nearLabelButtonStackView.axis = .horizontal
-        nearLabelButtonStackView.alignment = .top
-        nearLabelButtonStackView.distribution = .fillProportionally
-
+        nearLabelButtonStackView.alignment = .fill
+        nearLabelButtonStackView.distribution = .fill
+//
         nearToYouStackView.axis = .vertical
         nearToYouStackView.alignment = .fill
-        nearToYouStackView.distribution = .fillEqually
+        nearToYouStackView.distribution = .fill
         nearToYouStackView.spacing = 1
 
 
         categoriesLabel.text = "O que deseja conhecer hoje?"
-        categoriesView.backgroundColor = .black
 
         nearToLabel.text = "Perto de você"
         seeMoreButton.setTitle("veja mais", for: .normal)
@@ -130,7 +126,7 @@ class HomeView : UIView {
         primaryStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             primaryStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            primaryStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            primaryStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             primaryStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             primaryStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
@@ -138,22 +134,23 @@ class HomeView : UIView {
         categoriesStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             categoriesStackView.topAnchor.constraint(equalTo: primaryStackView.topAnchor, constant: 0),
-            categoriesStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            categoriesStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-//            categoriesLabel.heightAnchor.constraint(equalToConstant: 19),
-//            categoriesView.heightAnchor.constraint(equalToConstant: 100)
+            categoriesStackView.trailingAnchor.constraint(equalTo: primaryStackView.trailingAnchor),
+            categoriesStackView.leadingAnchor.constraint(equalTo: primaryStackView.leadingAnchor),
+
 
         ])
         
         categoriesCollection.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             categoriesCollection.leadingAnchor.constraint(equalTo: categoriesStackView.leadingAnchor),
-            categoriesCollection.trailingAnchor.constraint(equalTo: categoriesStackView.trailingAnchor)
+            categoriesCollection.trailingAnchor.constraint(equalTo: categoriesStackView.trailingAnchor),
+            //categoriesCollection.topAnchor.constraint(equalTo: categoriesLabel.topAnchor),
+            categoriesCollection.bottomAnchor.constraint(equalTo: categoriesStackView.bottomAnchor)
         ])
 
 //        nearLabelButtonStackView.translatesAutoresizingMaskIntoConstraints = false
 
-//
+
 //        nearToYouStackView.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
 //            nearToYouStackView.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 0),
