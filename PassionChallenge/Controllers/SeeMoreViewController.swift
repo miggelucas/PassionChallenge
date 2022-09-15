@@ -9,61 +9,51 @@ import UIKit
 
 class SeeMoreViewController: UIViewController {
     
-   
-    lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.isScrollEnabled = false
-        tableView.separatorStyle = .none
-
-        tableView.register(SeeMoreTableViewCell.self, forCellReuseIdentifier: SeeMoreTableViewCell.identifier)
-            
-        return tableView
-    }()
-    
+    let customView = SeeMoreView()
+       
+    let places = Place.getRecomendations()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
-        self.view.addSubview(self.tableView)
-        self.configConstraints()
+        self.customView.backgroundColor = .white
         
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+        customView.tableView.delegate = self
+        customView.tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
-    private func configConstraints(){
-        
-        NSLayoutConstraint.activate([
-        
-            self.tableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            self.tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-        ])
-        
-    }
-    
+
 }
 
 
 
-extension SeeMoreViewController: UITableViewDelegate, UITableViewDataSource{
+extension SeeMoreViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SeeMoreTableViewCell.identifier, for: indexPath) as? SeeMoreTableViewCell
+        
+        let placeIndex = places[indexPath.item]
+        
+        cell?.localTitleLabel.text = placeIndex.name
+        cell?.addressLabel.text = placeIndex.adress
+        cell?.localImageView.image = UIImage(named: placeIndex.imageURL)
+        
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 94
     }
     
+}
+
+extension SeeMoreViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("User tocou na celular \(places[indexPath.row])")
+    }
 }
 
     
@@ -77,4 +67,19 @@ extension SeeMoreViewController: UITableViewDelegate, UITableViewDataSource{
     }
     */
 
+
+import SwiftUI
+
+#if DEBUG
+@available(iOS 13, *)
+struct SeeMoreViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        // view controller using programmatic UI
+        Group {
+            SeeMoreView().showPreview().previewDevice("iPhone SE (3rd generation)")
+            SeeMoreView().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
+        }
+    }
+}
+#endif
 

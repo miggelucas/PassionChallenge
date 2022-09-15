@@ -9,19 +9,51 @@ import UIKit
 
 class SeeMoreView: UIView {
     
-    
     // inicializando componentes
     let backgroundView = UIImageView()
+    lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.isScrollEnabled = false
+        tableView.separatorStyle = .none
+
+        tableView.register(SeeMoreTableViewCell.self, forCellReuseIdentifier: SeeMoreTableViewCell.identifier)
+            
+        return tableView
+    }()
+    
+ 
+    func setupViewHierarchy() {
+
+        
+        self.addSubview(tableView)
+    }
     
     func setupViewAttributes() {
-        self.backgroundColor = .blue
+        self.backgroundColor = UIColor(named: "systemBackground")
+
         
         backgroundView.image = UIImage(named: "Background")
         backgroundView.contentMode = .scaleToFill
     }
+    
+    func configConstraints(){
+       
+       NSLayoutConstraint.activate([
+       
+           self.tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+           self.tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+           self.tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+           self.tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+       ])
+       
+   }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupViewAttributes()
+        configConstraints()
+        
         //SeeMoreTableViewCell()
     }
     
@@ -46,12 +78,12 @@ class SeeMoreView: UIView {
 import SwiftUI
 
 @available(iOS 13, *)
-struct seeMoreView_Preview: PreviewProvider {
+struct SeeMoreView_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            HomeView().showPreview().previewDevice("iPhone SE (3rd generation)")
-            HomeView().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
+            SeeMoreView().showPreview().previewDevice("iPhone SE (3rd generation)")
+            SeeMoreView().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
         }
     }
 }
