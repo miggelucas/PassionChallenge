@@ -14,6 +14,10 @@ extension Place {
         
         return [
             Place(
+                name: "Casa da Cultura",
+                adress: "R. Floriano Peixoto, 35182-066 - São José",
+                imageURL: "casadacultura.png"),
+            Place(
                 name: "Paço alfândega",
                 adress: "Endereço do paço",
                 imageURL: "paçoalfandega.png"),
@@ -22,11 +26,6 @@ extension Place {
                 name: "Livraria Jaqueira",
                 adress: "R. Me. de Deus, 110 - Recife",
                 imageURL: "livrariajaqueira.png"),
-            
-            Place(
-                name: "Casa da Cultura",
-                adress: "R. Floriano Peixoto, 35182-066 - São José",
-                imageURL: "casadacultura.png"),
             
             Place(
                 name: "Mercado da Encruzilhada",

@@ -10,6 +10,12 @@
 		1762A46B28D2386F007765F3 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762A46A28D2386F007765F3 /* Place.swift */; };
 		1762A46D28D23909007765F3 /* Place+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762A46C28D23909007765F3 /* Place+Extension.swift */; };
 		1762A46F28D24032007765F3 /* RecomendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762A46E28D24032007765F3 /* RecomendationCollectionViewCell.swift */; };
+		17BF90B028D3AB8900F016EC /* PlaceNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90AF28D3AB8900F016EC /* PlaceNew.swift */; };
+		17BF90B228D3ABF500F016EC /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B128D3ABF500F016EC /* History.swift */; };
+		17BF90B428D3ADCB00F016EC /* PlaceNew+Extensoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B328D3ADCB00F016EC /* PlaceNew+Extensoin.swift */; };
+		17BF90B628D3AEF600F016EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B528D3AEF600F016EC /* Constants.swift */; };
+		17BF90B828D3B46900F016EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B728D3B46900F016EC /* DetailsViewController.swift */; };
+		17BF90BA28D3B4CD00F016EC /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B928D3B4CD00F016EC /* DetailsView.swift */; };
 		17EDE9FD28CF9FE800421C42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDE9FC28CF9FE800421C42 /* AppDelegate.swift */; };
 		17EDE9FF28CF9FE800421C42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDE9FE28CF9FE800421C42 /* SceneDelegate.swift */; };
 		17EDEA0128CF9FE800421C42 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA0028CF9FE800421C42 /* ProfileViewController.swift */; };
@@ -31,6 +37,12 @@
 		1762A46A28D2386F007765F3 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		1762A46C28D23909007765F3 /* Place+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+Extension.swift"; sourceTree = "<group>"; };
 		1762A46E28D24032007765F3 /* RecomendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationCollectionViewCell.swift; sourceTree = "<group>"; };
+		17BF90AF28D3AB8900F016EC /* PlaceNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceNew.swift; sourceTree = "<group>"; };
+		17BF90B128D3ABF500F016EC /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		17BF90B328D3ADCB00F016EC /* PlaceNew+Extensoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaceNew+Extensoin.swift"; sourceTree = "<group>"; };
+		17BF90B528D3AEF600F016EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		17BF90B728D3B46900F016EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		17BF90B928D3B4CD00F016EC /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		17EDE9F928CF9FE800421C42 /* PassionChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassionChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EDE9FC28CF9FE800421C42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17EDE9FE28CF9FE800421C42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +80,7 @@
 				17EDEA1928CFA67700421C42 /* HomeViewController.swift */,
 				17EDEA0028CF9FE800421C42 /* ProfileViewController.swift */,
 				17EDEA1B28CFACB700421C42 /* SearchViewController.swift */,
+				17BF90B728D3B46900F016EC /* DetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -79,6 +92,10 @@
 				17EDEA4628D2115700421C42 /* Categoires+Extension.swift */,
 				1762A46A28D2386F007765F3 /* Place.swift */,
 				1762A46C28D23909007765F3 /* Place+Extension.swift */,
+				17BF90AF28D3AB8900F016EC /* PlaceNew.swift */,
+				17BF90B328D3ADCB00F016EC /* PlaceNew+Extensoin.swift */,
+				17BF90B128D3ABF500F016EC /* History.swift */,
+				17BF90B528D3AEF600F016EC /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				17EDEA1D28CFAE6300421C42 /* HomeView.swift */,
+				17BF90B928D3B4CD00F016EC /* DetailsView.swift */,
 				17EDEA4228D10C7E00421C42 /* CategoriesCollectionViewCell.swift */,
 				1762A46E28D24032007765F3 /* RecomendationCollectionViewCell.swift */,
 				17EDEA0A28CF9FE900421C42 /* LaunchScreen.storyboard */,
@@ -205,18 +223,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17BF90B228D3ABF500F016EC /* History.swift in Sources */,
 				1762A46F28D24032007765F3 /* RecomendationCollectionViewCell.swift in Sources */,
 				17EDEA0128CF9FE800421C42 /* ProfileViewController.swift in Sources */,
 				1762A46D28D23909007765F3 /* Place+Extension.swift in Sources */,
+				17BF90B428D3ADCB00F016EC /* PlaceNew+Extensoin.swift in Sources */,
 				17EDEA0728CF9FE800421C42 /* PassionChallenge.xcdatamodeld in Sources */,
 				17EDEA1528CFA23300421C42 /* UIViewController+Preview.swift in Sources */,
+				17BF90B028D3AB8900F016EC /* PlaceNew.swift in Sources */,
 				17EDEA1E28CFAE6300421C42 /* HomeView.swift in Sources */,
 				17EDEA1C28CFACB700421C42 /* SearchViewController.swift in Sources */,
 				1762A46B28D2386F007765F3 /* Place.swift in Sources */,
+				17BF90B828D3B46900F016EC /* DetailsViewController.swift in Sources */,
 				17EDEA1A28CFA67700421C42 /* HomeViewController.swift in Sources */,
 				17EDEA4328D10C7E00421C42 /* CategoriesCollectionViewCell.swift in Sources */,
 				17EDE9FD28CF9FE800421C42 /* AppDelegate.swift in Sources */,
 				17EDEA1828CFA60100421C42 /* TabBarViewController.swift in Sources */,
+				17BF90B628D3AEF600F016EC /* Constants.swift in Sources */,
+				17BF90BA28D3B4CD00F016EC /* DetailsView.swift in Sources */,
 				17EDEA2028CFCBD900421C42 /* CategoriesModel.swift in Sources */,
 				17EDEA4728D2115700421C42 /* Categoires+Extension.swift in Sources */,
 				17EDE9FF28CF9FE800421C42 /* SceneDelegate.swift in Sources */,

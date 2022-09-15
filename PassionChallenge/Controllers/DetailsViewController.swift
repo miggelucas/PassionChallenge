@@ -1,18 +1,17 @@
 //
-//  SearchViewController.swift
+//  DetailsViewController.swift
 //  PassionChallenge
 //
-//  Created by Lucas Migge de Barros on 12/09/22.
+//  Created by Lucas Migge de Barros on 15/09/22.
 //
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        //self.title = "Buscar"
+
         // Do any additional setup after loading the view.
     }
     
@@ -35,12 +34,12 @@ class SearchViewController: UIViewController {
 import SwiftUI
 
 @available(iOS 13, *)
-struct SearchViewController_Preview: PreviewProvider {
+struct DetailsViewController_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-            ProfileViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
-            ProfileViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
+    DetailsViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
+            DetailsViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
         }
     }
 }

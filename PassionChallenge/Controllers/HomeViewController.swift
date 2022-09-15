@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         customView.recomendationCollection.dataSource = self
         customView.recomendationCollection.delegate = self
         
-        self.title = "Bom dia!"
+        //self.title = "Bom dia!"
         
     }
 }

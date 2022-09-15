@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
         
         view.backgroundColor = .red
         
-        self.title = "Meu perfil"
+        //self.title = "Meu perfil"
     }
 
 

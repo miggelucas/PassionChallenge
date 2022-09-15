@@ -35,15 +35,9 @@ class HomeView : UIView {
     let recomendationLabelButtonStackView = UIStackView()
     let recomendationStackView = UIStackView()
     
-    let primaryStackView = UIStackView()
+
     
     let categoriesStackView = UIStackView()
-    
-
-        
-    
-    //public var nearToYouCollection : UICollectionView
-    
    
     var recomendationCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -53,13 +47,31 @@ class HomeView : UIView {
         
         let collection =  UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
-        collection.register(RecomendationCollectionViewCell.self, forCellWithReuseIdentifier:
-RecomendationCollectionViewCell.identifier)
+        collection.register(RecomendationCollectionViewCell.self, forCellWithReuseIdentifier: RecomendationCollectionViewCell.identifier)
         collection.backgroundColor = .clear
         return collection
     }()
     
-  //  let bestPicksCollection = UICollectionView()
+    let primaryStackView = UIStackView()
+    
+    
+    @objc private func tappedButton(sender: UIButton) {
+            print("Usuário clicou no botão")
+        }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViewHierarchy()
+        setupViewAttributes()
+        setupConstraints()
+        setupAdditionalConfiguration()
+    }
+    
+    required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     
     
     func setupViewHierarchy(){
@@ -90,7 +102,7 @@ RecomendationCollectionViewCell.identifier)
         backgroundView.image = UIImage(named: "Background")
         backgroundView.contentMode = .scaleToFill
 
-        categoriesLabel.backgroundColor = .blue
+        
         
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
@@ -114,9 +126,12 @@ RecomendationCollectionViewCell.identifier)
 
 
         categoriesLabel.text = "O que deseja conhecer hoje?"
+        categoriesLabel.textColor = UIColor(named: "Light Gray Blue")
 
         recomendationLabel.text = "Perto de você"
         recomendationLabel.backgroundColor = .red
+        recomendationLabel.textColor = UIColor(named: "Light Gray Blue")
+        
         seeMoreButton.setTitle("veja mais", for: .normal)
         seeMoreButton.setTitleColor(.orange, for: .normal)
         seeMoreButton.backgroundColor = .gray
@@ -137,7 +152,7 @@ RecomendationCollectionViewCell.identifier)
         primaryStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             primaryStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            primaryStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            primaryStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
             primaryStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             primaryStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
@@ -173,16 +188,14 @@ RecomendationCollectionViewCell.identifier)
         
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViewHierarchy()
-        setupViewAttributes()
-        setupConstraints()
+    func setupAdditionalConfiguration() {
+        
+        seeMoreButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
     }
     
-    required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-    }
+
+    
+    
 }
 
 
