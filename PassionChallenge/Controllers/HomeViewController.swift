@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == customView.categoriesCollection {
             return categories.count
@@ -49,11 +49,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == customView.categoriesCollection {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as? CategoriesCollectionViewCell {
                 
-                let categorieIndex = categories[indexPath.item]
+                let categorie = categories[indexPath.item]
                 
                 // implementar função Draw
-                cell.imageView.image = UIImage(named: categorieIndex.imageString)
-                cell.label.text = categorieIndex.name
+                cell.imageView.image = UIImage(named: categorie.imageString)
+                cell.label.text = categorie.name
                 
                 return cell
                 
@@ -64,11 +64,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecomendationCollectionViewCell.identifier, for: indexPath) as? RecomendationCollectionViewCell {
                 
-                let recomendationIndex = recomendations[indexPath.item]
+                let recomendation = recomendations[indexPath.item]
                 
-                cell.imageView.image = UIImage(named: recomendationIndex.imageURL)
-                cell.nameLabel.text = recomendationIndex.name
-                cell.adressLabel.text = recomendationIndex.adress
+                cell.imageView.image = UIImage(named: recomendation.imageURL)
+                cell.nameLabel.text = recomendation.name
+                cell.adressLabel.text = recomendation.adress
                 
                 return cell
                 
@@ -82,6 +82,21 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
     
+
+
+extension HomeViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == customView.categoriesCollection {
+            let categorieSelected = categories[indexPath.item]
+            let categorieString : String = categorieSelected.name
+            print("Usuário cliclou na categoria \(categorieString)")
+            
+        } else if collectionView == customView.recomendationCollection {
+            let recomendationSelected = recomendations[indexPath.item]
+            print("Usuário cliclou no place \(recomendationSelected)")
+        }
+    }
+}
 
 
     // MARK: - Preview
