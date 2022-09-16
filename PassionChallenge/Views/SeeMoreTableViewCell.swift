@@ -9,14 +9,6 @@ import UIKit
 
 class SeeMoreTableViewCell: UITableViewCell {
     
-    
-    
-    let customView: SeeMoreView = {
-        let view = SeeMoreView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     static let identifier: String = "SeeMoreTableViewCell"
     
     // inicializando componentes
@@ -29,26 +21,26 @@ class SeeMoreTableViewCell: UITableViewCell {
     let localAddressStackView = UIStackView()
     let cellInfoStackView = UIStackView()
     
-    
-    
+
     
     func setupViewHierarchy(){
         
         self.addSubview(cellView)
         
-        cellInfoStackView.backgroundColor = .white
+        cellView.addSubview(cellInfoStackView)
+        
+        cellInfoStackView.backgroundColor = .clear
         cellInfoStackView.addArrangedSubview(localImageView)
         cellInfoStackView.addArrangedSubview(localAddressStackView)
 
         localAddressStackView.addArrangedSubview(localTitleLabel)
         localAddressStackView.addArrangedSubview(addressLabel)
+        
     }
-    
-    
     
     func setupViewAttributes() {
 
-        cellView.backgroundColor = .white //precisaria definir um tamanho pra ela, n?
+        self.backgroundColor = UIColor(named: "Light Gray Blue")
     
         cellInfoStackView.axis = .horizontal
         cellInfoStackView.alignment = .fill
@@ -58,11 +50,16 @@ class SeeMoreTableViewCell: UITableViewCell {
         localAddressStackView.axis = .vertical
         localAddressStackView.alignment = .fill
         localAddressStackView.distribution = .fillProportionally
-        localAddressStackView.spacing = 20
+        localAddressStackView.spacing = 12
         
         localImageView.image = UIImage()
+        
+        
         localTitleLabel.text = "Local"  //ver como alinhar com o data source
+        localTitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         addressLabel.text = "Endereço"  //ver como alinhar com o data source
+        addressLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        addressLabel.textColor = UIColor(named: "systemBackground")
         
     }
     
@@ -74,7 +71,7 @@ class SeeMoreTableViewCell: UITableViewCell {
             cellView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             cellView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             
-            cellView.heightAnchor.constraint(equalToConstant: 94) //tentando definir tamanho pra ela
+            //cellView.heightAnchor.constraint(equalToConstant: 94) //tentando definir tamanho pra ela
         ])
         
         cellInfoStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,22 +84,24 @@ class SeeMoreTableViewCell: UITableViewCell {
         
         localImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            localImageView.topAnchor.constraint(equalTo: cellInfoStackView.topAnchor),
-            localImageView.bottomAnchor.constraint(equalTo: cellInfoStackView.bottomAnchor),
-//            localImageView.trailingAnchor.constraint(equalTo: cellInfoStackView.trailingAnchor), //acho que n precisa disso, né? (alinhada a direita)
-            localImageView.leadingAnchor.constraint(equalTo: cellInfoStackView.leadingAnchor), //precisa ajustar
-        ])
+            localImageView.heightAnchor.constraint(equalToConstant: 94),
+            localImageView.widthAnchor.constraint(equalToConstant: 102)
+])
 
         localAddressStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            localAddressStackView.topAnchor.constraint(equalTo: cellInfoStackView.topAnchor, constant: 0),
-            localAddressStackView.trailingAnchor.constraint(equalTo: cellInfoStackView.trailingAnchor, constant: -30),
-//            localAddressStackView.leadingAnchor.constraint(equalTo: cellInfoStackView.leadingAnchor), //acho que n precisa, né? (alinhada a esquerda)
-            localAddressStackView.bottomAnchor.constraint(equalTo: cellInfoStackView.bottomAnchor)
-
-        ])
 
 
+        
+    }
+    
+    required override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.contentView.addSubview(self.cellView)
+        setupViewHierarchy()
+        setupViewAttributes()
+        setupConstraints()
+        self.accessoryType = .disclosureIndicator
+        
         
     }
     
@@ -110,14 +109,13 @@ class SeeMoreTableViewCell: UITableViewCell {
             fatalError("init(coder:) has not been implemented")
     }
 
-    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupViewHierarchy()
-        setupViewAttributes()
-        setupConstraints()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

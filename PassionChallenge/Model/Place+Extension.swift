@@ -13,7 +13,22 @@ extension Place {
     static func getRecomendations() -> [Place]{
         
         return [
-            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "paco.png")
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
+            Place(name: "Paço alfândega", adress: "Endereço do paço", imageURL: "ImageTeatro"),
         ]
         
     }
