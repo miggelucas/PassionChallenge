@@ -43,7 +43,7 @@ extension SeeMoreViewController: UITableViewDataSource{
         cell.localImageView.image = UIImage(named: placeIndex.imageURL)
         cell.tintColor = .orange
         
-        var separatorLineView = UIView(frame: CGRect(x: 0, y: 0, width: view.widthAnchor.hash, height: 3))
+        let separatorLineView = UIView(frame: CGRect(x: 0, y: 0, width: view.widthAnchor.hash, height: 3))
         /// change size as you need.
         separatorLineView.backgroundColor = UIColor(named: "systemBackground")
         // you can also put image here
