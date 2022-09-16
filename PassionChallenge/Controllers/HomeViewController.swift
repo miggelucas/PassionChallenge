@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
@@ -30,8 +30,18 @@ class HomeViewController: UIViewController {
         //self.title = "Bom dia!"
         
     }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destionation = segue.destination as? SeeMoreViewController {
+            let recommendationsSegue = sender as? [Place]
+            destionation.places = recommendationsSegue ?? []
+        }
+            
+        }
+        
 }
-
 extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == customView.categoriesCollection {
@@ -94,6 +104,7 @@ extension HomeViewController : UICollectionViewDelegate {
         } else if collectionView == customView.recomendationCollection {
             let recomendationSelected = recomendations[indexPath.item]
             print("Usuário cliclou no place \(recomendationSelected)")
+            //performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
         }
     }
 }

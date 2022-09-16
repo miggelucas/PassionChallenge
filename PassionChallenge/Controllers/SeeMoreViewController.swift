@@ -11,8 +11,10 @@ class SeeMoreViewController: UIViewController {
     
     let customView = SeeMoreView()
        
-    let places = Place.getRecomendations()
-
+    //var places = Place.getRecomendations()
+    var places : [Place] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
