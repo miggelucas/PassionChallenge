@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, HomeViewDelegate {
     }
     
     func doSomeAction() {
-        let seeMoreViewController = SeeMoreViewController(withRecommendations: self.recomendations)
+        let seeMoreViewController = SeeMoreViewController(withPlaces: self.recomendations, withTitleName: "Recomendações")
         self.navigationController?.pushViewController(seeMoreViewController, animated: true)
         //print("aqui eu devo chamar o peform segue")
         
@@ -108,16 +108,15 @@ extension HomeViewController:  UICollectionViewDataSource {
 extension HomeViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == customView.categoriesCollection {
-            let categorieSelected = categories[indexPath.item]
-            let categorieString : String = categorieSelected.name
+            let categorieSelected : Categorie = categories[indexPath.item]
             
-            let seeMoreViewController = SeeMoreViewController(withRecommendations: self.recomendations)
-            seeMoreViewController.navigationController?.navigationBar.prefersLargeTitles = false
+            let seeMoreViewController = SeeMoreViewController(withPlaces: self.recomendations, withTitleName: categorieSelected.name)
+            self.navigationController?.navigationBar.prefersLargeTitles = false
             self.navigationController?.navigationBar.tintColor = .orange
             
             self.navigationController?.pushViewController(seeMoreViewController, animated: true)
             
-            print("Usuário cliclou na categoria \(categorieString)")
+            print("Usuário cliclou na categoria \(categorieSelected.name)")
             
         } else if collectionView == customView.recomendationCollection {
             let recomendationSelected = recomendations[indexPath.item]
@@ -125,6 +124,7 @@ extension HomeViewController : UICollectionViewDelegate {
             
             let detailsViewController = DetailsViewController(withPlace: recomendationSelected)
             self.navigationController?.pushViewController(detailsViewController, animated: true)
+            self.navigationController?.navigationBar.prefersLargeTitles = false
             
             
             print("Usuário cliclou no place \(recomendationSelected)")

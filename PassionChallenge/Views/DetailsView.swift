@@ -37,6 +37,19 @@ class DetailsView: UIView {
     let historyStackView = UIStackView()
     
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViewHierarchy()
+        setupViewAttributes()
+        setupConstraints()
+//        setupAdditionalConfiguration()
+    }
+    
+    required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     func setupViewHierarchy() {
         backgroundColor = UIColor(named: K.systemLightGray)
         
@@ -66,14 +79,15 @@ class DetailsView: UIView {
     }
     
     func setupViewAttributes() {
+        backgroundColor = UIColor(named: K.systemBackground)
         
-        nameLabel.text = "Nome do lugar"
+        //nameLabel.text = "Nome do lugar"
         nameLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         
         saveButton.setImage(UIImage(named: "bookmark"), for: .normal)
         saveButton.backgroundColor = .green
         
-        adressLabel.text = "Endereço do lugar"
+        //adressLabel.text = "Endereço do lugar"
         adressLabel.font = UIFont.systemFont(ofSize: 14)
         tagsLabel.text = "tags do lugar"
         
@@ -178,24 +192,10 @@ class DetailsView: UIView {
         
 //        saveButton.translatesAutoresizingMaskIntoConstraints = false
         
-        
-  
-        
-        
+
         
     }
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViewHierarchy()
-        setupViewAttributes()
-        setupConstraints()
-//        setupAdditionalConfiguration()
-    }
-    
-    required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-    }
-    
+   
     
     
  

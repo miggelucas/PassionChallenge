@@ -14,8 +14,9 @@ class SeeMoreViewController: UIViewController {
     //var places = Place.getRecomendations()
     var places : [Place] = []
     
-    init(withRecommendations places: [Place]){
+    init(withPlaces places: [Place], withTitleName titleName: String){
         super.init(nibName: nil, bundle: nil)
+        self.title = titleName
         self.places = places
     }
     

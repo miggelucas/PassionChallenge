@@ -10,10 +10,10 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     let customView = DetailsView()
-    var place : Place? 
+    var place : Place?
     
     
-    init(withPlace place: Place){ecomend
+    init(withPlace place: Place){
         super.init(nibName: nil, bundle: nil)
         self.place = place
     }
@@ -31,7 +31,11 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         self.view = customView
+        customView.nameLabel.text = place?.name
+        customView.imageView.image = UIImage(named: place?.imageURL ?? "") 
+        customView.adressLabel.text = place?.adress
 
+        
         // Do any additional setup after loading the view.
     }
     
