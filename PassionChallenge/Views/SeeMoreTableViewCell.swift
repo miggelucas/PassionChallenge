@@ -18,6 +18,7 @@ class SeeMoreTableViewCell: UITableViewCell {
     let localTitleLabel = UILabel()
     let addressLabel = UILabel()
     
+    
     let localAddressStackView = UIStackView()
     let cellInfoStackView = UIStackView()
     

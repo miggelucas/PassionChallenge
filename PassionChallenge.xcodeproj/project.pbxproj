@@ -34,6 +34,8 @@
 		17EDEA2028CFCBD900421C42 /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA1F28CFCBD900421C42 /* CategoriesModel.swift */; };
 		17EDEA4328D10C7E00421C42 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA4228D10C7E00421C42 /* CategoriesCollectionViewCell.swift */; };
 		17EDEA4728D2115700421C42 /* Categoires+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA4628D2115700421C42 /* Categoires+Extension.swift */; };
+		4F01F4DF28D8EEF20007CC85 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F4DE28D8EEF20007CC85 /* HistoryView.swift */; };
+		4F01F4E128D8EF2E0007CC85 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F01F4E028D8EF2E0007CC85 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		17EDEA1F28CFCBD900421C42 /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 		17EDEA4228D10C7E00421C42 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		17EDEA4628D2115700421C42 /* Categoires+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Categoires+Extension.swift"; sourceTree = "<group>"; };
+		4F01F4DE28D8EEF20007CC85 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		4F01F4E028D8EF2E0007CC85 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				17A4865A28D50E32000837BD /* SeeMoreViewController.swift */,
 				17EDEA1B28CFACB700421C42 /* SearchViewController.swift */,
 				17BF90B728D3B46900F016EC /* DetailsViewController.swift */,
+				4F01F4E028D8EF2E0007CC85 /* HistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 				17EDEA4228D10C7E00421C42 /* CategoriesCollectionViewCell.swift */,
 				1762A46E28D24032007765F3 /* RecomendationCollectionViewCell.swift */,
 				17EDEA0A28CF9FE900421C42 /* LaunchScreen.storyboard */,
+				4F01F4DE28D8EEF20007CC85 /* HistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 				17EDEA0128CF9FE800421C42 /* ProfileViewController.swift in Sources */,
 				1762A46D28D23909007765F3 /* Place+Extension.swift in Sources */,
 				17BF90B428D3ADCB00F016EC /* PlaceNew+Extensoin.swift in Sources */,
+				4F01F4E128D8EF2E0007CC85 /* HistoryViewController.swift in Sources */,
 				17A4865B28D50E32000837BD /* SeeMoreViewController.swift in Sources */,
 				17EDEA0728CF9FE800421C42 /* PassionChallenge.xcdatamodeld in Sources */,
 				17EDEA1528CFA23300421C42 /* UIViewController+Preview.swift in Sources */,
@@ -249,6 +256,7 @@
 				17EDEA1A28CFA67700421C42 /* HomeViewController.swift in Sources */,
 				17EDEA4328D10C7E00421C42 /* CategoriesCollectionViewCell.swift in Sources */,
 				17EDE9FD28CF9FE800421C42 /* AppDelegate.swift in Sources */,
+				4F01F4DF28D8EEF20007CC85 /* HistoryView.swift in Sources */,
 				17EDEA1828CFA60100421C42 /* TabBarViewController.swift in Sources */,
 				17BF90B628D3AEF600F016EC /* Constants.swift in Sources */,
 				17BF90BA28D3B4CD00F016EC /* DetailsView.swift in Sources */,
@@ -395,7 +403,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 749Q737TF5;
+				DEVELOPMENT_TEAM = 3L83X3262C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassionChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -422,7 +430,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 749Q737TF5;
+				DEVELOPMENT_TEAM = 3L83X3262C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PassionChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

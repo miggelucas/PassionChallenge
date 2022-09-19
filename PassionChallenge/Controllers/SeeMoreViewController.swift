@@ -57,23 +57,6 @@ extension SeeMoreViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 94
     }
-    
-    
-    // olha a gente tentando e dando errado dnovo
-//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 14; // space b/w cells
-//    }
-//
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return places.count // count of items
-//    }
-//
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = UIView()
-//        header.isUserInteractionEnabled = false
-//        header.backgroundColor = .clear
-//        return header
-//    }
 
 
 }
