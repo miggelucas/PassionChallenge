@@ -14,6 +14,19 @@ class SeeMoreViewController: UIViewController {
     //var places = Place.getRecomendations()
     var places : [Place] = []
     
+    init(withRecommendations places: [Place]){
+        super.init(nibName: nil, bundle: nil)
+        self.places = places
+    }
+    
+    init(){
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +35,7 @@ class SeeMoreViewController: UIViewController {
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
         // Do any additional setup after loading the view.
-    }
-    
+    }       
 
 }
 

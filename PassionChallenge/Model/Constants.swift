@@ -19,6 +19,6 @@ struct K {
     static let aoArLivre = "Ao ar Livre"
     
     // colors Stings
-    static let systemBlue = "systemBackground"
-    static let systemLightGray = "Light Gray Blue"
+    static let systemBackground = "Color systemBackground"
+    static let systemLightGray = "Color Light Gray Blue"
 }

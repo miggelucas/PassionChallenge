@@ -7,19 +7,20 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeViewDelegate {
+    
+    
     
     let customView = HomeView()
     
     let categories : [Categorie] = Categorie.getCategories()
     let recomendations : [Place] = Place.getRecomendations()
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
+        
+        customView.delegate = self
         
         customView.categoriesCollection.delegate = self
         customView.categoriesCollection.dataSource = self
@@ -31,17 +32,26 @@ class HomeViewController: UIViewController {
         
     }
     
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destionation = segue.destination as? SeeMoreViewController {
-            let recommendationsSegue = sender as? [Place]
-            destionation.places = recommendationsSegue ?? []
-        }
-            
-        }
+    func doSomeAction() {
+        let seeMoreViewController = SeeMoreViewController(withRecommendations: self.recomendations)
+        self.navigationController?.pushViewController(seeMoreViewController, animated: true)
+        print("aqui eu devo chamar o peform segue")
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+  
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //if let nav = tabBarController?.navigationController[0]? as? SeeMoreViewController {
+//            let recommendationsSegue = sender as? [Place]
+  //          nav.places = recommendationsSegue ?? []
+    //    }
+   // }
 }
+
+
 extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == customView.categoriesCollection {
@@ -63,6 +73,7 @@ extension HomeViewController:  UICollectionViewDataSource {
                 
                 // implementar função Draw
                 cell.imageView.image = UIImage(named: categorie.imageString)
+                
                 cell.label.text = categorie.name
                 
                 return cell
@@ -99,12 +110,19 @@ extension HomeViewController : UICollectionViewDelegate {
         if collectionView == customView.categoriesCollection {
             let categorieSelected = categories[indexPath.item]
             let categorieString : String = categorieSelected.name
+            
+            let seeMoreViewController = SeeMoreViewController(withRecommendations: self.recomendations)
+            seeMoreViewController.navigationController?.navigationBar.prefersLargeTitles = false
+            self.navigationController?.navigationBar.tintColor = .orange
+            
+            self.navigationController?.pushViewController(seeMoreViewController, animated: true)
+            
             print("Usuário cliclou na categoria \(categorieString)")
             
         } else if collectionView == customView.recomendationCollection {
             let recomendationSelected = recomendations[indexPath.item]
             print("Usuário cliclou no place \(recomendationSelected)")
-            //performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+            
         }
     }
 }

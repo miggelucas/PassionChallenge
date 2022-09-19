@@ -8,9 +8,14 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
+    let customView = DetailsView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view = customView
 
         // Do any additional setup after loading the view.
     }
@@ -38,7 +43,7 @@ struct DetailsViewController_Preview: PreviewProvider {
     static var previews: some View {
         // view controller using programmatic UI
         Group {
-    DetailsViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
+            DetailsViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
             DetailsViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
         }
     }

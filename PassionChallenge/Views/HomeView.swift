@@ -35,8 +35,6 @@ class HomeView : UIView {
     let recomendationLabelButtonStackView = UIStackView()
     let recomendationStackView = UIStackView()
     
-
-    
     let categoriesStackView = UIStackView()
    
     var recomendationCollection: UICollectionView = {
@@ -55,9 +53,12 @@ class HomeView : UIView {
     let primaryStackView = UIStackView()
     
     
+    weak var delegate : HomeViewDelegate?
+    
     @objc private func tappedButton(sender: UIButton) {
-            print("Usuário clicou no botão")
-        }
+        print("Usuário clicou no botão")
+        delegate?.doSomeAction()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,9 +71,6 @@ class HomeView : UIView {
     required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
     
     func setupViewHierarchy(){
         
@@ -103,7 +101,6 @@ class HomeView : UIView {
         backgroundView.contentMode = .scaleToFill
 
         
-        
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fillProportionally
@@ -128,13 +125,14 @@ class HomeView : UIView {
         categoriesLabel.text = "O que deseja conhecer hoje?"
         categoriesLabel.textColor = UIColor(named: "Light Gray Blue")
 
-        recomendationLabel.text = "Perto de você"
-        recomendationLabel.backgroundColor = .red
+        recomendationLabel.text = "Recomendações"
+        //recomendationLabel.font = UIfon
+        //recomendationLabel.backgroundColor = .red
         recomendationLabel.textColor = UIColor(named: "Light Gray Blue")
         
         seeMoreButton.setTitle("veja mais", for: .normal)
         seeMoreButton.setTitleColor(.orange, for: .normal)
-        seeMoreButton.backgroundColor = .gray
+        //seeMoreButton.backgroundColor = .gray
         recomendationView.backgroundColor = .orange
         
         
