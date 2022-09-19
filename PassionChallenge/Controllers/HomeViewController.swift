@@ -35,7 +35,7 @@ class HomeViewController: UIViewController, HomeViewDelegate {
     func doSomeAction() {
         let seeMoreViewController = SeeMoreViewController(withRecommendations: self.recomendations)
         self.navigationController?.pushViewController(seeMoreViewController, animated: true)
-        print("aqui eu devo chamar o peform segue")
+        //print("aqui eu devo chamar o peform segue")
         
     }
     
@@ -121,6 +121,12 @@ extension HomeViewController : UICollectionViewDelegate {
             
         } else if collectionView == customView.recomendationCollection {
             let recomendationSelected = recomendations[indexPath.item]
+            
+            
+            let detailsViewController = DetailsViewController(withPlace: recomendationSelected)
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
+            
+            
             print("Usuário cliclou no place \(recomendationSelected)")
             
         }

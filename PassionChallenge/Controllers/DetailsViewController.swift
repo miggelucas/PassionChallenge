@@ -10,6 +10,21 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     let customView = DetailsView()
+    var place : Place? 
+    
+    
+    init(withPlace place: Place){ecomend
+        super.init(nibName: nil, bundle: nil)
+        self.place = place
+    }
+    
+    init(){
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {
