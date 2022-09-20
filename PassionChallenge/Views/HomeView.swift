@@ -104,22 +104,28 @@ class HomeView : UIView {
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fill
-        primaryStackView.spacing = 20
+        primaryStackView.spacing = 10
         
         categoriesStackView.axis = .vertical
         categoriesStackView.alignment = .fill
-        categoriesStackView.distribution = .fillProportionally
+        categoriesStackView.distribution = .fill
         categoriesStackView.spacing = 10
+        
+        categoriesStackView.backgroundColor = .gray
+        categoriesCollection.backgroundColor = .brown
+        
         
         
         recomendationLabelButtonStackView.axis = .horizontal
         recomendationLabelButtonStackView.alignment = .fill
-        recomendationLabelButtonStackView.distribution = .fill
+        recomendationLabelButtonStackView.distribution = .fillProportionally
         //
         recomendationStackView.axis = .vertical
         recomendationStackView.alignment = .fill
         recomendationStackView.distribution = .fill
-        recomendationStackView.spacing = 10
+        recomendationStackView.spacing = 5
+        //recomendationStackView.backgroundColor = .blue
+        //recomendationCollection.backgroundColor = .brown
         
         
         categoriesLabel.text = "O que deseja conhecer hoje?"
@@ -128,6 +134,7 @@ class HomeView : UIView {
         
         recomendationLabel.text = "Recomendações"
         recomendationLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        recomendationLabel.adjustsFontSizeToFitWidth = true
         
         recomendationLabel.textColor = UIColor(named: K.systemLightGray)
         
@@ -156,11 +163,16 @@ class HomeView : UIView {
             primaryStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
         
+        categoriesLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            
+        ])
+        
         categoriesStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            categoriesStackView.topAnchor.constraint(equalTo: primaryStackView.topAnchor, constant: 0),
-            categoriesStackView.trailingAnchor.constraint(equalTo: primaryStackView.trailingAnchor),
-            categoriesStackView.leadingAnchor.constraint(equalTo: primaryStackView.leadingAnchor),
+//            categoriesStackView.topAnchor.constraint(equalTo: primaryStackView.topAnchor, constant: 0),
+//            categoriesStackView.trailingAnchor.constraint(equalTo: primaryStackView.trailingAnchor),
+//            categoriesStackView.leadingAnchor.constraint(equalTo: primaryStackView.leadingAnchor),
             
             
             
@@ -168,16 +180,16 @@ class HomeView : UIView {
         
         categoriesCollection.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            categoriesCollection.leadingAnchor.constraint(equalTo: categoriesStackView.leadingAnchor),
-            categoriesCollection.trailingAnchor.constraint(equalTo: categoriesStackView.trailingAnchor),
+            //categoriesCollection.leadingAnchor.constraint(equalTo: categoriesStackView.leadingAnchor),
+            //categoriesCollection.trailingAnchor.constraint(equalTo: categoriesStackView.trailingAnchor),
             //categoriesCollection.topAnchor.constraint(equalTo: categoriesLabel.topAnchor),
-            categoriesCollection.bottomAnchor.constraint(equalTo: categoriesStackView.bottomAnchor),
-            categoriesCollection.heightAnchor.constraint(equalToConstant: 200)
+            //categoriesCollection.bottomAnchor.constraint(equalTo: categoriesStackView.bottomAnchor),
+            categoriesCollection.heightAnchor.constraint(equalToConstant: 220)
         ])
         
-        recomendationStackView.translatesAutoresizingMaskIntoConstraints = false
+        recomendationCollection.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            
+            recomendationCollection.heightAnchor.constraint(equalToConstant: 243)
         ])
         
         

@@ -43,13 +43,13 @@ class TabBarViewController: UITabBarController {
             //navigation.navigationBar.prefersLargeTitles = true
             navigation.navigationItem.largeTitleDisplayMode = .automatic
             navigation.viewControllers[0].title = titlesNames[index]
-            //navigation.navigationBar.titleTextAttributes 
-            
+            navigation.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: K.systemLightGray) ?? .white]
+            navigation.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: K.systemLightGray) ?? .white]
             
             self.navigationControllers.append(navigation)
         }
         
-        
+        //navigationController?.navigationBar.largeTitleTextAttributes =
         self.tabBar.unselectedItemTintColor = UIColor(named: K.systemLightGray)
         self.tabBar.tintColor = .orange
         

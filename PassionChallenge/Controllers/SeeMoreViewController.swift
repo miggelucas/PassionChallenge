@@ -63,7 +63,7 @@ extension SeeMoreViewController: UITableViewDataSource{
         
         let separatorLineView = UIView(frame: CGRect(x: 0, y: 0, width: view.widthAnchor.hash, height: 3))
         /// change size as you need.
-        separatorLineView.backgroundColor = UIColor(named: "systemBackground")
+        separatorLineView.backgroundColor = UIColor(named: K.systemBackground)
         // you can also put image here
         cell.contentView.addSubview(separatorLineView)
         
