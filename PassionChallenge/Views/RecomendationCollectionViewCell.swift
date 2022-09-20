@@ -55,13 +55,13 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
 
         nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
     
-        nameLabel.textColor = UIColor(named: "systemBackground")
+        nameLabel.textColor = UIColor(named: K.systemBackground)
 
         adressLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        adressLabel.textColor = UIColor(named: "systemBackground")
+        adressLabel.textColor = UIColor(named: K.systemBackground)
         
         imageView.contentMode = .scaleToFill
-        labelsContainer.backgroundColor = UIColor(named: "Light Gray Blue")
+        labelsContainer.backgroundColor = UIColor(named: K.systemLightGray)
     }
     
     

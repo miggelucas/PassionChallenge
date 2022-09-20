@@ -9,8 +9,6 @@ import UIKit
 
 class HomeViewController: UIViewController, HomeViewDelegate {
     
-    
-    
     let customView = HomeView()
     
     let categories : [Categorie] = Categorie.getCategories()
@@ -19,6 +17,8 @@ class HomeViewController: UIViewController, HomeViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
+        
+
         
         customView.delegate = self
         
@@ -42,13 +42,6 @@ class HomeViewController: UIViewController, HomeViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-  
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //if let nav = tabBarController?.navigationController[0]? as? SeeMoreViewController {
-//            let recommendationsSegue = sender as? [Place]
-  //          nav.places = recommendationsSegue ?? []
-    //    }
-   // }
 }
 
 
@@ -111,9 +104,8 @@ extension HomeViewController : UICollectionViewDelegate {
             let categorieSelected : Categorie = categories[indexPath.item]
             
             let seeMoreViewController = SeeMoreViewController(withPlaces: self.recomendations, withTitleName: categorieSelected.name)
-            self.navigationController?.navigationBar.prefersLargeTitles = false
+            //self.navigationController?.navigationBar.prefersLargeTitles = false
             self.navigationController?.navigationBar.tintColor = .orange
-            
             self.navigationController?.pushViewController(seeMoreViewController, animated: true)
             
             print("Usuário cliclou na categoria \(categorieSelected.name)")
@@ -124,7 +116,7 @@ extension HomeViewController : UICollectionViewDelegate {
             
             let detailsViewController = DetailsViewController(withPlace: recomendationSelected)
             self.navigationController?.pushViewController(detailsViewController, animated: true)
-            self.navigationController?.navigationBar.prefersLargeTitles = false
+            //self.navigationController?.navigationBar.prefersLargeTitles = false
             
             
             print("Usuário cliclou no place \(recomendationSelected)")

@@ -30,6 +30,9 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.tabBar.isHidden = true
+        navigationItem.largeTitleDisplayMode = .never
+        
         self.view = customView
         customView.nameLabel.text = place?.name
         customView.imageView.image = UIImage(named: place?.imageURL ?? "") 
@@ -37,6 +40,11 @@ class DetailsViewController: UIViewController {
 
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
 

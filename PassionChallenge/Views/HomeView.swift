@@ -36,7 +36,7 @@ class HomeView : UIView {
     let recomendationStackView = UIStackView()
     
     let categoriesStackView = UIStackView()
-   
+    
     var recomendationCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 336, height: 209)
@@ -69,7 +69,7 @@ class HomeView : UIView {
     }
     
     required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupViewHierarchy(){
@@ -78,20 +78,20 @@ class HomeView : UIView {
         self.addSubview(primaryStackView)
         
         //primaryStackView.backgroundColor = .yellow
-
+        
         categoriesStackView.addArrangedSubview(categoriesLabel)
         categoriesStackView.addArrangedSubview(categoriesCollection)
-
-
+        
+        
         recomendationLabelButtonStackView.addArrangedSubview(recomendationLabel)
         recomendationLabelButtonStackView.addArrangedSubview(seeMoreButton)
-//
+        //
         recomendationStackView.addArrangedSubview(recomendationLabelButtonStackView)
         recomendationStackView.addArrangedSubview(recomendationCollection)
-
+        
         primaryStackView.addArrangedSubview(categoriesStackView)
         primaryStackView.addArrangedSubview(recomendationStackView)
-
+        
     }
     
     func setupViewAttributes() {
@@ -99,36 +99,37 @@ class HomeView : UIView {
         
         backgroundView.image = UIImage(named: "Background")
         backgroundView.contentMode = .scaleToFill
-
+        
         
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
-        primaryStackView.distribution = .fillProportionally
-        primaryStackView.spacing = 10
-
+        primaryStackView.distribution = .fill
+        primaryStackView.spacing = 20
+        
         categoriesStackView.axis = .vertical
         categoriesStackView.alignment = .fill
-        categoriesStackView.distribution = .fill
+        categoriesStackView.distribution = .fillProportionally
         categoriesStackView.spacing = 10
-
-
+        
+        
         recomendationLabelButtonStackView.axis = .horizontal
         recomendationLabelButtonStackView.alignment = .fill
         recomendationLabelButtonStackView.distribution = .fill
-//
+        //
         recomendationStackView.axis = .vertical
         recomendationStackView.alignment = .fill
         recomendationStackView.distribution = .fill
         recomendationStackView.spacing = 10
-
-
+        
+        
         categoriesLabel.text = "O que deseja conhecer hoje?"
-        categoriesLabel.textColor = UIColor(named: "Light Gray Blue")
-
+        categoriesLabel.textColor = UIColor(named: K.systemLightGray)
+        categoriesLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        
         recomendationLabel.text = "Recomendações"
-        //recomendationLabel.font = UIfon
-        //recomendationLabel.backgroundColor = .red
-        recomendationLabel.textColor = UIColor(named: "Light Gray Blue")
+        recomendationLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        
+        recomendationLabel.textColor = UIColor(named: K.systemLightGray)
         
         seeMoreButton.setTitle("veja mais", for: .normal)
         seeMoreButton.setTitleColor(.orange, for: .normal)
@@ -154,14 +155,15 @@ class HomeView : UIView {
             primaryStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             primaryStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
-
+        
         categoriesStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             categoriesStackView.topAnchor.constraint(equalTo: primaryStackView.topAnchor, constant: 0),
             categoriesStackView.trailingAnchor.constraint(equalTo: primaryStackView.trailingAnchor),
             categoriesStackView.leadingAnchor.constraint(equalTo: primaryStackView.leadingAnchor),
-
-
+            
+            
+            
         ])
         
         categoriesCollection.translatesAutoresizingMaskIntoConstraints = false
@@ -169,20 +171,15 @@ class HomeView : UIView {
             categoriesCollection.leadingAnchor.constraint(equalTo: categoriesStackView.leadingAnchor),
             categoriesCollection.trailingAnchor.constraint(equalTo: categoriesStackView.trailingAnchor),
             //categoriesCollection.topAnchor.constraint(equalTo: categoriesLabel.topAnchor),
-            categoriesCollection.bottomAnchor.constraint(equalTo: categoriesStackView.bottomAnchor)
+            categoriesCollection.bottomAnchor.constraint(equalTo: categoriesStackView.bottomAnchor),
+            categoriesCollection.heightAnchor.constraint(equalToConstant: 200)
         ])
-
-//        nearLabelButtonStackView.translatesAutoresizingMaskIntoConstraints = false
-
-
-//        nearToYouStackView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            nearToYouStackView.topAnchor.constraint(equalTo: categoriesView.bottomAnchor, constant: 0),
-//            nearToYouStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0),
-//            nearToYouStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-//            nearToYouStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-//        ])
-
+        
+        recomendationStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            
+        ])
+        
         
     }
     
@@ -191,7 +188,7 @@ class HomeView : UIView {
         seeMoreButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
     }
     
-
+    
     
     
 }

@@ -40,17 +40,17 @@ class TabBarViewController: UITabBarController {
             let navigation = UINavigationController(rootViewController: viewController)
             navigation.tabBarItem = UITabBarItem(title: titlesNames[index], image: UIImage(named: icons[index]), tag: 1)
            
-            navigation.navigationBar.prefersLargeTitles = true
-            navigation.navigationBar.tintColor = UIColor(named: "Light Gray Blue")
+            //navigation.navigationBar.prefersLargeTitles = true
+            navigation.navigationItem.largeTitleDisplayMode = .automatic
             navigation.viewControllers[0].title = titlesNames[index]
-            navigation.navigationBar.tintColor = UIColor(named: "Light Gray Blue")
+            //navigation.navigationBar.titleTextAttributes 
             
             
             self.navigationControllers.append(navigation)
         }
         
         
-        self.tabBar.unselectedItemTintColor = UIColor(named: "Light Gray Blue")
+        self.tabBar.unselectedItemTintColor = UIColor(named: K.systemLightGray)
         self.tabBar.tintColor = .orange
         
 

@@ -40,7 +40,7 @@ class SeeMoreTableViewCell: UITableViewCell {
     
     func setupViewAttributes() {
 
-        self.backgroundColor = UIColor(named: "Light Gray Blue")
+        self.backgroundColor = UIColor(named: K.systemLightGray)
     
         cellInfoStackView.axis = .horizontal
         cellInfoStackView.alignment = .fill
@@ -57,9 +57,12 @@ class SeeMoreTableViewCell: UITableViewCell {
         
         localTitleLabel.text = "Local"  //ver como alinhar com o data source
         localTitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        localTitleLabel.textColor = .black
+        
         addressLabel.text = "Endereço"  //ver como alinhar com o data source
         addressLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        addressLabel.textColor = UIColor(named: "systemBackground")
+        addressLabel.textColor = UIColor(named: K.systemBackground)
+        addressLabel.numberOfLines = 0
         
     }
     

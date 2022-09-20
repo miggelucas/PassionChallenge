@@ -32,6 +32,9 @@ class SeeMoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.largeTitleDisplayMode = .never
+
+        
         self.view = customView
         customView.tableView.delegate = self
         customView.tableView.dataSource = self
@@ -93,8 +96,19 @@ extension SeeMoreViewController: UITableViewDataSource{
 
 extension SeeMoreViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        let placeSelected : Place = places[indexPath.row]
+        
+        
+        let detailsViewController = DetailsViewController(withPlace: placeSelected)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
+        // self.navigationController?.navigationBar.prefersLargeTitles = false
+        
+        
         print("User tocou na celular \(places[indexPath.row])")
     }
+
 
 }
 
