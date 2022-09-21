@@ -10,5 +10,5 @@ import Foundation
 
 struct History {
     let imageURL : String
-    let descriptionText : String
+    let text : String
 }
