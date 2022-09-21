@@ -9,12 +9,12 @@ import UIKit
 
 class DetailsView: UIView {
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+     // Drawing code
+     }
+     */
     let backgroundImageView = UIImageView()
     
     let imageView = UIImageView()
@@ -29,17 +29,29 @@ class DetailsView: UIView {
     let historyLabel = UILabel()
     
     let buttonCallendarContainer = UIView()
+    let historyButton = UIButton()
     
-
     let knowMoreStackView = UIStackView()
     let nameSaveStackView = UIStackView()
     
     let infosStackView = UIStackView()
     let historyStackView = UIStackView()
+    let historyContainer = UIView()
+    
     
     let primaryStackView = UIStackView()
     let stackContainer = UIView()
     
+    weak var delegate : DetailViewDelegate?
+    
+    
+    func draw(place : Place){
+        imageView.image = UIImage(named: place.imageURL)
+        nameLabel.text = place.name
+        //tagsLabel.text =
+        adressLabel.text = place.adress
+        historyLabel.text = place.historyArray[0].text
+    }
     
     
     override init(frame: CGRect) {
@@ -47,16 +59,17 @@ class DetailsView: UIView {
         setupViewHierarchy()
         setupViewAttributes()
         setupConstraints()
-//        setupAdditionalConfiguration()
+        setupAdditionalConfiguration()
+        //
     }
     
     required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented")
     }
     
     
     func setupViewHierarchy() {
-                
+        
         nameSaveStackView.addArrangedSubview(nameLabel)
         nameSaveStackView.addArrangedSubview(saveButton)
         
@@ -73,9 +86,11 @@ class DetailsView: UIView {
         historyStackView.addArrangedSubview(knowMoreStackView)
         historyStackView.addArrangedSubview(historyLabel)
         
+        historyContainer.addSubview(historyStackView)
+        historyContainer.addSubview(historyButton)
         
         primaryStackView.addArrangedSubview(infosStackView)
-        primaryStackView.addArrangedSubview(historyStackView)
+        primaryStackView.addArrangedSubview(historyContainer)
         
         stackContainer.addSubview(primaryStackView)
         
@@ -91,34 +106,36 @@ class DetailsView: UIView {
         
         nameLabel.text = "Nome do lugar"
         nameLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
-
+        
         saveButton.setImage(UIImage(named: "bookmark"), for: .normal)
         saveButton.tintColor = .black
         saveButton.backgroundColor = .green
-
+        
         adressLabel.text = "Endereço do lugar"
         adressLabel.font = UIFont.systemFont(ofSize: 14)
         tagsLabel.text = "tags do lugar"
-
+        
         imageView.backgroundColor = .blue
         imageView.contentMode = .scaleToFill
-
+        
         addToCalenderButton.setTitle("Adicionar ao Calendário", for: .normal)
         addToCalenderButton.backgroundColor = .orange
         addToCalenderButton.layer.masksToBounds = true
         addToCalenderButton.layer.cornerRadius = 10
-
+        
         buttonCallendarContainer.backgroundColor = .green
-
+        historyContainer.backgroundColor = .clear
+        //historyButton.backgroundColor = .green
+        
         knowMoreLabel.text = "Conheça a história"
         knowMoreLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         knowMoreLabel.textColor = UIColor(named: K.systemBackground)
-
+        
         arrowImage.image = UIImage(named: "chevron.right")
         historyLabel.text = "blansandjasndjkasndjkshqwhdjkahdjkhjqwhdbahdwqwhdahsdhqwdhasdasdqwdasdq"
         historyLabel.numberOfLines = 0
         historyLabel.adjustsFontForContentSizeCategory = true
-
+        
         nameSaveStackView.axis = .horizontal
         nameSaveStackView.distribution = .fillProportionally
         nameSaveStackView.alignment = .fill
@@ -129,7 +146,7 @@ class DetailsView: UIView {
         infosStackView.distribution = .fill
         infosStackView.spacing = 12
         infosStackView.backgroundColor = .gray
-
+        
         knowMoreStackView.axis = .horizontal
         knowMoreStackView.alignment = .fill
         knowMoreStackView.distribution = .fill
@@ -187,7 +204,7 @@ class DetailsView: UIView {
             primaryStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25)
         ])
         
-
+        
         addToCalenderButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             addToCalenderButton.topAnchor.constraint(equalTo: buttonCallendarContainer.topAnchor),
@@ -196,21 +213,42 @@ class DetailsView: UIView {
             addToCalenderButton.leadingAnchor.constraint(equalTo: buttonCallendarContainer.leadingAnchor, constant: 20),
             addToCalenderButton.heightAnchor.constraint(equalToConstant: 40)
         ])
-
+        
         knowMoreStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             knowMoreStackView.heightAnchor.constraint(equalToConstant: 24)
         ])
-
         
-
+        historyStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            historyStackView.topAnchor.constraint(equalTo: historyContainer.topAnchor),
+            historyStackView.bottomAnchor.constraint(equalTo: historyContainer.bottomAnchor),
+            historyStackView.leadingAnchor.constraint(equalTo: historyContainer.leadingAnchor),
+            historyStackView.trailingAnchor.constraint(equalTo: historyContainer.trailingAnchor)
+        ])
+        
+        historyButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            historyButton.topAnchor.constraint(equalTo: historyStackView.topAnchor),
+            historyButton.bottomAnchor.constraint(equalTo: historyStackView.bottomAnchor),
+            historyButton.leadingAnchor.constraint(equalTo: historyStackView.leadingAnchor),
+            historyButton.trailingAnchor.constraint(equalTo: historyStackView.trailingAnchor)
+        ])
         
     }
-   
+    
+    func setupAdditionalConfiguration(){
+        historyButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+    }
     
     
- 
-
+    @objc private func tappedButton(sender: UIButton) {
+        print("Usuário clicou no botão")
+        //delegate?.pushNextViewController()
+    }
+    
+    
+    
 }
 
 // MARK: - Preview

@@ -7,7 +7,12 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, DetailViewDelegate {
+    func pushNextViewController() {
+        print("blablabla")
+        //historyView.draw(place.HistoryAray)
+    }
+    
     
     let customView = DetailsView()
     var place : Place?
@@ -34,11 +39,9 @@ class DetailsViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         
         self.view = customView
-        customView.nameLabel.text = place?.name
-        customView.imageView.image = UIImage(named: place?.imageURL ?? "") 
-        customView.adressLabel.text = place?.adress
+        customView.draw(place: place!)
 
-        
+        customView.delegate = self
         // Do any additional setup after loading the view.
     }
     
