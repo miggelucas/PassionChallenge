@@ -47,7 +47,6 @@ class SeeMoreViewController: UIViewController {
 
 extension SeeMoreViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Entrou aqui")
         return places.count
     }
     
@@ -55,12 +54,10 @@ extension SeeMoreViewController: UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SeeMoreTableViewCell.identifier, for: indexPath) as? SeeMoreTableViewCell else {return UITableViewCell()}
         
         let placeIndex = places[indexPath.item]
+        cell.draw(place: placeIndex)
         
-        cell.localTitleLabel.text = placeIndex.name
-        cell.addressLabel.text = placeIndex.adress
-        cell.localImageView.image = UIImage(named: placeIndex.imageURL)
-        cell.tintColor = .orange
         
+        // gambiarrar para aparecer uma linha azul entre cada cell
         let separatorLineView = UIView(frame: CGRect(x: 0, y: 0, width: view.widthAnchor.hash, height: 3))
         /// change size as you need.
         separatorLineView.backgroundColor = UIColor(named: K.systemBackground)

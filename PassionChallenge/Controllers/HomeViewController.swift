@@ -62,12 +62,9 @@ extension HomeViewController:  UICollectionViewDataSource {
         if collectionView == customView.categoriesCollection {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as? CategoriesCollectionViewCell {
                 
-                let categorie = categories[indexPath.item]
+                let categorieIndex = categories[indexPath.item]
                 
-                // implementar função Draw
-                cell.imageView.image = UIImage(named: categorie.imageString)
-                
-                cell.label.text = categorie.name
+                cell.draw(categorie: categorieIndex)
                 
                 return cell
                 
@@ -80,9 +77,7 @@ extension HomeViewController:  UICollectionViewDataSource {
                 
                 let recomendation = recomendations[indexPath.item]
                 
-                cell.imageView.image = UIImage(named: recomendation.imageURL)
-                cell.nameLabel.text = recomendation.name
-                cell.adressLabel.text = recomendation.adress
+                cell.draw(place: recomendation)
                 
                 return cell
                 

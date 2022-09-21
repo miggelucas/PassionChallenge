@@ -13,7 +13,7 @@ class SeeMoreTableViewCell: UITableViewCell {
     
     // inicializando componentes
     let cellView = UIView()
-
+    
     let localImageView = UIImageView()
     let localTitleLabel = UILabel()
     let addressLabel = UILabel()
@@ -21,7 +21,11 @@ class SeeMoreTableViewCell: UITableViewCell {
     let localAddressStackView = UIStackView()
     let cellInfoStackView = UIStackView()
     
-
+    func draw(place : Place){
+        self.localImageView.image = UIImage(named: place.imageURL)
+        self.addressLabel.text = place.adress
+        self.localTitleLabel.text = place.name
+    }
     
     func setupViewHierarchy(){
         
@@ -32,21 +36,21 @@ class SeeMoreTableViewCell: UITableViewCell {
         cellInfoStackView.backgroundColor = .clear
         cellInfoStackView.addArrangedSubview(localImageView)
         cellInfoStackView.addArrangedSubview(localAddressStackView)
-
+        
         localAddressStackView.addArrangedSubview(localTitleLabel)
         localAddressStackView.addArrangedSubview(addressLabel)
         
     }
     
     func setupViewAttributes() {
-
+        
         self.backgroundColor = UIColor(named: K.systemLightGray)
-    
+        
         cellInfoStackView.axis = .horizontal
         cellInfoStackView.alignment = .fill
         cellInfoStackView.distribution = .fill
         cellInfoStackView.spacing = 12
-
+        
         localAddressStackView.axis = .vertical
         localAddressStackView.alignment = .fill
         localAddressStackView.distribution = .fillProportionally
@@ -89,11 +93,11 @@ class SeeMoreTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             localImageView.heightAnchor.constraint(equalToConstant: 94),
             localImageView.widthAnchor.constraint(equalToConstant: 102)
-])
-
+        ])
+        
         localAddressStackView.translatesAutoresizingMaskIntoConstraints = false
-
-
+        
+        
         
     }
     
@@ -103,28 +107,30 @@ class SeeMoreTableViewCell: UITableViewCell {
         setupViewHierarchy()
         setupViewAttributes()
         setupConstraints()
-        self.accessoryType = .disclosureIndicator
+        self.accessoryType = .detailDisclosureButton
+        self.tintColor = .orange
+       
         
         
     }
     
     required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented")
     }
-
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-//    }
+    
+    //    override func layoutSubviews() {
+    //        super.layoutSubviews()
+    //        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    //    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

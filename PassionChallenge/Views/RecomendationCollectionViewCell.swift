@@ -21,8 +21,16 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
     
     
     let labelsContainer = UIView()
-    // definindo hierarquia de view
     
+    // function to be called in dequeueReusableCell
+    func draw(place : Place){
+        self.imageView.image = UIImage(named: place.imageURL)
+        self.nameLabel.text = place.name
+        self.adressLabel.text = place.adress
+        
+    }
+    
+    // definindo hierarquia de view
     func setupViewHierarchy(){
         self.addSubview(primartStackView)
         

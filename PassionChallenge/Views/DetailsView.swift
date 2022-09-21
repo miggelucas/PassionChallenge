@@ -19,7 +19,7 @@ class DetailsView: UIView {
     
     let imageView = UIImageView()
     let nameLabel = UILabel()
-    let saveButton = UIButton()
+    let saveButton = UIButton(type: .custom)
     let tagsLabel = UILabel()
     let adressLabel = UILabel()
     let addToCalenderButton = UIButton()
@@ -28,7 +28,7 @@ class DetailsView: UIView {
     let arrowImage = UIImageView()
     let historyLabel = UILabel()
     
-    let buttonContainer = UIView()
+    let buttonCallendarContainer = UIView()
     
 
     let knowMoreStackView = UIStackView()
@@ -60,12 +60,12 @@ class DetailsView: UIView {
         nameSaveStackView.addArrangedSubview(nameLabel)
         nameSaveStackView.addArrangedSubview(saveButton)
         
-        buttonContainer.addSubview(addToCalenderButton)
+        buttonCallendarContainer.addSubview(addToCalenderButton)
         
         infosStackView.addArrangedSubview(nameSaveStackView)
         infosStackView.addArrangedSubview(tagsLabel)
         infosStackView.addArrangedSubview(adressLabel)
-        infosStackView.addArrangedSubview(buttonContainer)
+        infosStackView.addArrangedSubview(buttonCallendarContainer)
         
         knowMoreStackView.addArrangedSubview(knowMoreLabel)
         knowMoreStackView.addArrangedSubview(arrowImage)
@@ -108,7 +108,7 @@ class DetailsView: UIView {
         addToCalenderButton.layer.masksToBounds = true
         addToCalenderButton.layer.cornerRadius = 10
 
-        buttonContainer.backgroundColor = .green
+        buttonCallendarContainer.backgroundColor = .green
 
         knowMoreLabel.text = "Conheça a história"
         knowMoreLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
@@ -190,10 +190,10 @@ class DetailsView: UIView {
 
         addToCalenderButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            addToCalenderButton.topAnchor.constraint(equalTo: buttonContainer.topAnchor),
-            addToCalenderButton.bottomAnchor.constraint(equalTo: buttonContainer.bottomAnchor),
-            addToCalenderButton.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor, constant: -20),
-            addToCalenderButton.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor, constant: 20),
+            addToCalenderButton.topAnchor.constraint(equalTo: buttonCallendarContainer.topAnchor),
+            addToCalenderButton.bottomAnchor.constraint(equalTo: buttonCallendarContainer.bottomAnchor),
+            addToCalenderButton.trailingAnchor.constraint(equalTo: buttonCallendarContainer.trailingAnchor, constant: -20),
+            addToCalenderButton.leadingAnchor.constraint(equalTo: buttonCallendarContainer.leadingAnchor, constant: 20),
             addToCalenderButton.heightAnchor.constraint(equalToConstant: 40)
         ])
 

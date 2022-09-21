@@ -13,8 +13,13 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     // iniciando componentes
     let imageView = UIImageView()
     let label = UILabel()
-    
     let stackView = UIStackView()
+    
+    // function to be called in dequeueReusableCell
+    func draw(categorie : Categorie){
+        self.imageView.image = UIImage(named: categorie.imageString)
+        self.label.text = categorie.name
+    }
     
     // definindo heirarquia de view
     func setupViewHierarchy() {
@@ -22,12 +27,12 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         stackView.addArrangedSubview(label)
         
         self.addSubview(stackView)
-//        stackView.backgroundColor = .yellow
-//        label.backgroundColor = .purple
+        //        stackView.backgroundColor = .yellow
+        //        label.backgroundColor = .purple
         
     }
-    // setando componentes
     
+    // setando componentes
     func setupViewAttributes(){
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -55,12 +60,12 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
             //imageView.widthAnchor.constraint(equalToConstant: 74)
         ])
         
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            label.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
-//            label.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-//            label.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
-//        ])
+        //        label.translatesAutoresizingMaskIntoConstraints = false
+        //        NSLayoutConstraint.activate([
+        //            label.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
+        //            label.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+        //            label.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
+        //        ])
     }
     
     
@@ -73,10 +78,10 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented")
     }
 }
-    
+
 
 //// MARK: - Preview
 //#if DEBUG
