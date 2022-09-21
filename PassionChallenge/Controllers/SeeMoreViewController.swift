@@ -47,28 +47,46 @@ class SeeMoreViewController: UIViewController {
 
 extension SeeMoreViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return places.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let cellSpacingHeight: CGFloat = 0.5
+        return cellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SeeMoreTableViewCell.identifier, for: indexPath) as? SeeMoreTableViewCell else {return UITableViewCell()}
         
-        let placeIndex = places[indexPath.item]
+        let placeIndex = places[indexPath.section]
         cell.draw(place: placeIndex)
         
         
+    
+        
+        
         // gambiarrar para aparecer uma linha azul entre cada cell
-        let separatorLineView = UIView(frame: CGRect(x: 0, y: 0, width: view.widthAnchor.hash, height: 3))
+        //let separatorLineView = UIView(frame: CGRect(x: 0, y: 0, width: view.widthAnchor.hash, height: 3))
         /// change size as you need.
-        separatorLineView.backgroundColor = UIColor(named: K.systemBackground)
+        //separatorLineView.backgroundColor = UIColor(named: K.systemBackground)
         // you can also put image here
-        cell.contentView.addSubview(separatorLineView)
+        //cell.contentView.addSubview(separatorLineView)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 94
+        return 100
     }
     
     

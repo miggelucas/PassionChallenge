@@ -14,7 +14,8 @@ class SeeMoreView: UIView {
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.isScrollEnabled = true
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
+        //tableView.separatorColor = .red
         
         tableView.register(SeeMoreTableViewCell.self, forCellReuseIdentifier: SeeMoreTableViewCell.identifier)
       
@@ -49,8 +50,8 @@ class SeeMoreView: UIView {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 5),
+            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -5)
         ])
         
         

@@ -96,6 +96,10 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    func aditionalSetup(){
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+    }
     
     
     override init(frame: CGRect) {
@@ -103,6 +107,7 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
         setupViewHierarchy()
         setupViewAttributes()
         setupConstraints()
+        aditionalSetup()
 
     }
     required init?(coder: NSCoder) {

@@ -27,6 +27,8 @@ class SeeMoreTableViewCell: UITableViewCell {
         self.localTitleLabel.text = place.name
     }
     
+    
+    
     func setupViewHierarchy(){
         
         self.addSubview(cellView)
@@ -56,7 +58,9 @@ class SeeMoreTableViewCell: UITableViewCell {
         localAddressStackView.distribution = .fillProportionally
         localAddressStackView.spacing = 12
         
-        localImageView.image = UIImage()
+        localImageView.contentMode = .scaleToFill
+        localImageView.layer.masksToBounds = true
+        localImageView.layer.cornerRadius = 5
         
         
         localTitleLabel.text = "Local"  //ver como alinhar com o data source
@@ -101,16 +105,21 @@ class SeeMoreTableViewCell: UITableViewCell {
         
     }
     
+    func aditionalSetup(){
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 16
+        self.accessoryType = .detailDisclosureButton
+        self.tintColor = .orange
+    }
+    
+    
     required override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.cellView)
         setupViewHierarchy()
         setupViewAttributes()
         setupConstraints()
-        self.accessoryType = .detailDisclosureButton
-        self.tintColor = .orange
-       
-        
+        aditionalSetup()
         
     }
     

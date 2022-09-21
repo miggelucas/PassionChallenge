@@ -103,15 +103,15 @@ class HomeView : UIView {
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fill
-        primaryStackView.spacing = 10
+        primaryStackView.spacing = 40
         
         categoriesStackView.axis = .vertical
         categoriesStackView.alignment = .fill
         categoriesStackView.distribution = .fill
         categoriesStackView.spacing = 10
         
-        categoriesStackView.backgroundColor = .gray
-        categoriesCollection.backgroundColor = .brown
+        //categoriesStackView.backgroundColor = .gray
+        //categoriesCollection.backgroundColor = .brown
         
         
         
