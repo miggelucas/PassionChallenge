@@ -43,11 +43,7 @@ class HistoryView: UIView {
     }
     
     func setupViewAttributes() {
-<<<<<<< HEAD
-        self.backgroundColor = UIColor(named: K.systemBlue)
-=======
         self.backgroundColor = UIColor(named: K.systemBackground)
->>>>>>> develop
         
         self.addSubview(primaryContainer)
         

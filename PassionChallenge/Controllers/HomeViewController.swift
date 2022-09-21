@@ -12,7 +12,7 @@ class HomeViewController: UIViewController, HomeViewDelegate {
     let customView = HomeView()
     
     let categories : [Categorie] = Categorie.getCategories()
-    let recomendations : [Place] = Place.getRecomendations()
+    let recomendations : [Place] = []//Place.getRecomendations()
     
     override func viewDidLoad() {
         super.viewDidLoad()
