@@ -13,7 +13,7 @@ class SeeMoreTableViewCell: UITableViewCell {
     
     // inicializando componentes
     let cellView = UIView()
-
+    
     let localImageView = UIImageView()
     let localTitleLabel = UILabel()
     let addressLabel = UILabel()
@@ -22,7 +22,13 @@ class SeeMoreTableViewCell: UITableViewCell {
     let localAddressStackView = UIStackView()
     let cellInfoStackView = UIStackView()
     
-
+    func draw(place : Place){
+        self.localImageView.image = UIImage(named: place.imageURL)
+        self.addressLabel.text = place.adress
+        self.localTitleLabel.text = place.name
+    }
+    
+    
     
     func setupViewHierarchy(){
         
@@ -33,34 +39,39 @@ class SeeMoreTableViewCell: UITableViewCell {
         cellInfoStackView.backgroundColor = .clear
         cellInfoStackView.addArrangedSubview(localImageView)
         cellInfoStackView.addArrangedSubview(localAddressStackView)
-
+        
         localAddressStackView.addArrangedSubview(localTitleLabel)
         localAddressStackView.addArrangedSubview(addressLabel)
         
     }
     
     func setupViewAttributes() {
-
-        self.backgroundColor = UIColor(named: "Light Gray Blue")
-    
+        
+        self.backgroundColor = UIColor(named: K.systemLightGray)
+        
         cellInfoStackView.axis = .horizontal
         cellInfoStackView.alignment = .fill
         cellInfoStackView.distribution = .fill
         cellInfoStackView.spacing = 12
-
+        
         localAddressStackView.axis = .vertical
         localAddressStackView.alignment = .fill
         localAddressStackView.distribution = .fillProportionally
         localAddressStackView.spacing = 12
         
-        localImageView.image = UIImage()
+        localImageView.contentMode = .scaleToFill
+        localImageView.layer.masksToBounds = true
+        localImageView.layer.cornerRadius = 5
         
         
         localTitleLabel.text = "Local"  //ver como alinhar com o data source
         localTitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        localTitleLabel.textColor = .black
+        
         addressLabel.text = "Endereço"  //ver como alinhar com o data source
         addressLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        addressLabel.textColor = UIColor(named: "systemBackground")
+        addressLabel.textColor = UIColor(named: K.systemBackground)
+        addressLabel.numberOfLines = 0
         
     }
     
@@ -87,13 +98,21 @@ class SeeMoreTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             localImageView.heightAnchor.constraint(equalToConstant: 94),
             localImageView.widthAnchor.constraint(equalToConstant: 102)
-])
-
+        ])
+        
         localAddressStackView.translatesAutoresizingMaskIntoConstraints = false
-
-
+        
+        
         
     }
+    
+    func aditionalSetup(){
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 16
+        self.accessoryType = .detailDisclosureButton
+        self.tintColor = .orange
+    }
+    
     
     required override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -101,28 +120,27 @@ class SeeMoreTableViewCell: UITableViewCell {
         setupViewHierarchy()
         setupViewAttributes()
         setupConstraints()
-        self.accessoryType = .disclosureIndicator
-        
+        aditionalSetup()
         
     }
     
     required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        fatalError("init(coder:) has not been implemented")
     }
-
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-//    }
+    
+    //    override func layoutSubviews() {
+    //        super.layoutSubviews()
+    //        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    //    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }
