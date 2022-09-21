@@ -21,6 +21,7 @@
 		17DE4C4A28DB9E3B000E1EB7 /* EmContrucaoUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE4C4928DB9E3B000E1EB7 /* EmContrucaoUIView.swift */; };
 		17DE4C4C28DBA7B6000E1EB7 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE4C4B28DBA7B6000E1EB7 /* HistoryViewController.swift */; };
 		17DE4C4E28DBA7DA000E1EB7 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE4C4D28DBA7DA000E1EB7 /* HistoryView.swift */; };
+		17DE4C5028DBB3D4000E1EB7 /* PlaceNew+Extensoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DE4C4F28DBB3D4000E1EB7 /* PlaceNew+Extensoin.swift */; };
 		17EDE9FD28CF9FE800421C42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDE9FC28CF9FE800421C42 /* AppDelegate.swift */; };
 		17EDE9FF28CF9FE800421C42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDE9FE28CF9FE800421C42 /* SceneDelegate.swift */; };
 		17EDEA0128CF9FE800421C42 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDEA0028CF9FE800421C42 /* ProfileViewController.swift */; };
@@ -55,6 +56,7 @@
 		17DE4C4928DB9E3B000E1EB7 /* EmContrucaoUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmContrucaoUIView.swift; sourceTree = "<group>"; };
 		17DE4C4B28DBA7B6000E1EB7 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		17DE4C4D28DBA7DA000E1EB7 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		17DE4C4F28DBB3D4000E1EB7 /* PlaceNew+Extensoin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlaceNew+Extensoin.swift"; sourceTree = "<group>"; };
 		17EDE9F928CF9FE800421C42 /* Armoriá.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Armoriá.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17EDE9FC28CF9FE800421C42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17EDE9FE28CF9FE800421C42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				17BF90AF28D3AB8900F016EC /* Place.swift */,
 				17BF90B128D3ABF500F016EC /* History.swift */,
 				17BF90B528D3AEF600F016EC /* Constants.swift */,
+				17DE4C4F28DBB3D4000E1EB7 /* PlaceNew+Extensoin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				17EDEA4728D2115700421C42 /* Categoires+Extension.swift in Sources */,
 				17EDE9FF28CF9FE800421C42 /* SceneDelegate.swift in Sources */,
 				17EDEA1628CFA23300421C42 /* UIView+Preview.swift in Sources */,
+				17DE4C5028DBB3D4000E1EB7 /* PlaceNew+Extensoin.swift in Sources */,
 				17A4865D28D50E3F000837BD /* SeeMoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
