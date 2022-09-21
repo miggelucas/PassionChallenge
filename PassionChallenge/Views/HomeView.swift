@@ -52,7 +52,6 @@ class HomeView : UIView {
     
     let primaryStackView = UIStackView()
     
-    
     weak var delegate : HomeViewDelegate?
     
     @objc private func tappedButton(sender: UIButton) {

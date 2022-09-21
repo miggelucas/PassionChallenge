@@ -16,8 +16,6 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     
     let stackView = UIStackView()
     
-    
-    
     // definindo heirarquia de view
     func setupViewHierarchy() {
         stackView.addArrangedSubview(imageView)
