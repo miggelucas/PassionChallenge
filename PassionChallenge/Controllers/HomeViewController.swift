@@ -103,7 +103,7 @@ extension HomeViewController : UICollectionViewDelegate {
             
             let seeMoreViewController = SeeMoreViewController(withPlaces: self.recomendations, withTitleName: categorieSelected.name)
             //self.navigationController?.navigationBar.prefersLargeTitles = false
-            self.navigationController?.navigationBar.tintColor = .orange
+
             self.navigationController?.pushViewController(seeMoreViewController, animated: true)
             
             print("Usuário cliclou na categoria \(categorieSelected.name)")
@@ -117,7 +117,7 @@ extension HomeViewController : UICollectionViewDelegate {
             //self.navigationController?.navigationBar.prefersLargeTitles = false
             
             
-            print("Usuário cliclou no place \(recomendationSelected)")
+            print("Usuário cliclou no place \(recomendationSelected.name)")
             
         }
     }

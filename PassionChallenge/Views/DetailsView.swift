@@ -100,6 +100,21 @@ class DetailsView: UIView {
         
     }
     
+    // esse cara não funciona
+//    func formatAddtoCalendarString(forString : String) -> String {
+//        let label = UILabel()
+//        let imageAttachment = NSTextAttachment()
+//        // If you want to enable Color in the SF Symbols.
+//        imageAttachment.image = UIImage(systemName: "bookmark")!.withTintColor(UIColor(named: K.systemBackground)!)
+//
+//        let fullString = NSMutableAttributedString(string: forString)
+//        fullString.append(NSAttributedString(attachment: imageAttachment))
+//        label.attributedText = fullString
+//        print(label.text!)
+//        return label.text!
+//
+//    }
+    
     func setupViewAttributes() {
         backgroundImageView.image = UIImage(named: "Background")
         backgroundImageView.contentMode = .scaleToFill
@@ -111,7 +126,8 @@ class DetailsView: UIView {
 //        saveButton.imageView?.contentMode = .scaleAspectFill
         saveButton.image = UIImage(systemName: "bookmark")
         saveButton.contentMode = .scaleAspectFill
-        saveButton.tintColor = UIColor(named: K.systemBackground)
+        saveButton.tintColor = .clear
+        //saveButton.tintColor = UIColor(named: K.systemBackground)
         //saveButton.backgroundColor = .green
         
         adressLabel.text = "Endereço do lugar"
@@ -122,7 +138,14 @@ class DetailsView: UIView {
         imageView.backgroundColor = UIColor(named: K.systemLightGray)
         imageView.contentMode = .scaleToFill
         
+        
         addToCalenderButton.setTitle("Adicionar ao Calendário", for: .normal)
+        addToCalenderButton.setTitleColor(UIColor(named: K.systemBackground), for: .normal)
+        
+        //addToCalenderButton.titleLabel?.text = "Adicionar ao Calendário"
+        //addToCalenderButton.setImage(UIImage(systemName: "calendar.badge.plus")?.withTintColor(UIColor(named: K.systemBackground)!), for: .normal)
+        //addToCalenderButton.contentMode = .center
+        
         addToCalenderButton.backgroundColor = .orange
         addToCalenderButton.layer.masksToBounds = true
         addToCalenderButton.layer.cornerRadius = 10
@@ -157,19 +180,19 @@ class DetailsView: UIView {
         knowMoreStackView.axis = .horizontal
         knowMoreStackView.alignment = .fill
         knowMoreStackView.distribution = .fill
-        knowMoreStackView.spacing = 8
+        knowMoreStackView.spacing = 2
         
         historyStackView.axis = .vertical
         historyStackView.alignment = .fill
         historyStackView.distribution = .fill
-        historyStackView.spacing = 8
+        historyStackView.spacing = 2
         //historyStackView.backgroundColor = .purple
         
         
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fill
-        primaryStackView.spacing = 25
+        primaryStackView.spacing = 30
         //primaryStackView.backgroundColor = UIColor(named: K.systemLightGray)
         
         stackContainer.backgroundColor = UIColor(named: K.systemLightGray)
@@ -201,7 +224,7 @@ class DetailsView: UIView {
         NSLayoutConstraint.activate([
             stackContainer.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             stackContainer.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            stackContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            stackContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
         ])
         
         

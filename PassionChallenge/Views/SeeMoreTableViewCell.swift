@@ -108,7 +108,7 @@ class SeeMoreTableViewCell: UITableViewCell {
     func aditionalSetup(){
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 16
-        self.accessoryType = .detailDisclosureButton
+        self.accessoryType = .disclosureIndicator
         self.tintColor = .orange
     }
     

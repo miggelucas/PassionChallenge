@@ -46,6 +46,7 @@ class TabBarViewController: UITabBarController {
             navigation.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: K.systemLightGray) ?? .white]
             navigation.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: K.systemLightGray) ?? .white]
             
+            navigation.navigationBar.tintColor = .orange
             self.navigationControllers.append(navigation)
         }
         
