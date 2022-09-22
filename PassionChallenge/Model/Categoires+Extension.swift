@@ -12,14 +12,14 @@ extension Categorie {
     static func getCategories() -> [Categorie]{
         
         return [
-            Categorie(imageString: "ImageArtesanato", name: "Artesanato"),
-            Categorie(imageString: "ImageCulinaria", name: "Culinária"),
-            Categorie(imageString: "ImageLiteratura", name: "Literatura"),
-            Categorie(imageString: "ImageMusica", name: "Música"),
-            Categorie(imageString: "ImageHistoria", name: "História"),
-            Categorie(imageString: "ImageCinema", name: "Cinema"),
-            Categorie(imageString: "ImageTeatro", name: "Teatro"),
-            Categorie(imageString: "ImageAoArLivre", name: "Ar Livre"),
+            Categorie(imageString: "ImageArtesanato", name: K.artesanato),
+            Categorie(imageString: "ImageCulinaria", name: K.culinaria),
+            Categorie(imageString: "ImageLiteratura", name: K.literatura),
+            Categorie(imageString: "ImageMusica", name: K.musica),
+            Categorie(imageString: "ImageHistoria", name: K.historia),
+            Categorie(imageString: "ImageCinema", name: K.cinema),
+            Categorie(imageString: "ImageTeatro", name: K.teatro),
+            Categorie(imageString: "ImageAoArLivre", name: K.aoArLivre),
         ]
         
     }

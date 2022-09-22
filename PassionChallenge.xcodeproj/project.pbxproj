@@ -13,6 +13,7 @@
 		17A4865F28D50E48000837BD /* SeeMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4865E28D50E48000837BD /* SeeMoreTableViewCell.swift */; };
 		17A4866128D8BCF2000837BD /* HomeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4866028D8BCF2000837BD /* HomeViewDelegate.swift */; };
 		17A4D47628DCD2F200CFC03A /* PageHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4D47528DCD2F200CFC03A /* PageHistoryViewController.swift */; };
+		17A4D47A28DD1A2400CFC03A /* Place+getPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4D47928DD1A2400CFC03A /* Place+getPlaces.swift */; };
 		17BF90B028D3AB8900F016EC /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90AF28D3AB8900F016EC /* Place.swift */; };
 		17BF90B228D3ABF500F016EC /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B128D3ABF500F016EC /* History.swift */; };
 		17BF90B628D3AEF600F016EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B528D3AEF600F016EC /* Constants.swift */; };
@@ -47,6 +48,7 @@
 		17A4865E28D50E48000837BD /* SeeMoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeMoreTableViewCell.swift; sourceTree = "<group>"; };
 		17A4866028D8BCF2000837BD /* HomeViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDelegate.swift; sourceTree = "<group>"; };
 		17A4D47528DCD2F200CFC03A /* PageHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHistoryViewController.swift; sourceTree = "<group>"; };
+		17A4D47928DD1A2400CFC03A /* Place+getPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+getPlaces.swift"; sourceTree = "<group>"; };
 		17BF90AF28D3AB8900F016EC /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		17BF90B128D3ABF500F016EC /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		17BF90B528D3AEF600F016EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				17BF90B128D3ABF500F016EC /* History.swift */,
 				17BF90B528D3AEF600F016EC /* Constants.swift */,
 				17DE4C4F28DBB3D4000E1EB7 /* PlaceNew+Extensoin.swift */,
+				17A4D47928DD1A2400CFC03A /* Place+getPlaces.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				17EDE9FF28CF9FE800421C42 /* SceneDelegate.swift in Sources */,
 				17EDEA1628CFA23300421C42 /* UIView+Preview.swift in Sources */,
 				17DE4C5028DBB3D4000E1EB7 /* PlaceNew+Extensoin.swift in Sources */,
+				17A4D47A28DD1A2400CFC03A /* Place+getPlaces.swift in Sources */,
 				17A4865D28D50E3F000837BD /* SeeMoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

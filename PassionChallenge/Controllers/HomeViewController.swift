@@ -99,14 +99,41 @@ extension HomeViewController:  UICollectionViewDataSource {
 extension HomeViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == customView.categoriesCollection {
-            let categorieSelected : Categorie = categories[indexPath.item]
             
-            let seeMoreViewController = SeeMoreViewController(withPlaces: self.recomendations, withTitleName: categorieSelected.name)
+            
+            let categorieSelected : String = categories[indexPath.item].name
+            
+            var places : [Place] = []
+            
+            switch categorieSelected{
+            case K.artesanato:
+                places = Place.getArtesanato()
+            case K.culinaria:
+                places = Place.getCulinaria()
+            case K.literatura:
+                places = Place.getLiteratura()
+            case K.historia:
+                places = Place.getHistoria()
+            case K.teatro:
+                places = Place.getTeatro()
+            case K.cinema:
+                places = Place.getCinema()
+            case K.aoArLivre:
+                places = Place.getAoArLivre()
+            case K.musica:
+                places = Place.getMusica()
+                
+                
+            default:
+                places = Place.getRecomendations()
+            }
+            
+            let seeMoreViewController = SeeMoreViewController(withPlaces: places, withTitleName: categorieSelected)
             //self.navigationController?.navigationBar.prefersLargeTitles = false
 
             self.navigationController?.pushViewController(seeMoreViewController, animated: true)
             
-            print("Usuário cliclou na categoria \(categorieSelected.name)")
+            print("Usuário cliclou na categoria \(categorieSelected)")
             
         } else if collectionView == customView.recomendationCollection {
             let recomendationSelected = recomendations[indexPath.item]
