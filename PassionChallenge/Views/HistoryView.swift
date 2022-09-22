@@ -13,6 +13,8 @@ class HistoryView: UIView {
     let descriptionImageView = UIImageView()
     let descriptionLabel = UILabel()
     
+    //let descriptionLabelContainer = UIView()
+    
     let changeSugLabel = UILabel()
     let changeSugButton = UIButton()
     
@@ -38,9 +40,10 @@ class HistoryView: UIView {
         primaryStackView.addArrangedSubview(infoStackView)
         primaryStackView.addArrangedSubview(changeSugStackView)
         
-        
         infoStackView.addArrangedSubview(descriptionImageView)
         infoStackView.addArrangedSubview(descriptionLabel)
+        
+        //descriptionLabelContainer.addSubview(descriptionLabel)
         
         changeSugStackView.addArrangedSubview(changeSugLabel)
         changeSugStackView.addArrangedSubview(changeSugButton)
@@ -50,34 +53,40 @@ class HistoryView: UIView {
     func setupViewAttributes() {
         self.backgroundColor = UIColor(named: K.systemBackground)
         
-        primaryContainer.backgroundColor = .purple
+        //primaryContainer.backgroundColor = .purple
         
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fill
         primaryStackView.spacing = 15
-        primaryStackView.backgroundColor = .green
+        //primaryStackView.backgroundColor = .green
         
         infoStackView.axis = .vertical
         infoStackView.alignment = .fill
         infoStackView.distribution = .fill
-        infoStackView.spacing = 16
-        infoStackView.backgroundColor = .yellow
+        infoStackView.spacing = 5
+        //infoStackView.backgroundColor = .yellow
         
         changeSugStackView.axis = .vertical
         changeSugStackView.alignment = .center
         changeSugStackView.distribution = .fillEqually
         changeSugStackView.spacing = 6
+        changeSugStackView.backgroundColor = .cyan
         
         descriptionImageView.backgroundColor = .red
         //descriptionImageView.image = UIImage(named: "paçoalfandega")
         descriptionImageView.contentMode = .scaleToFill
+        descriptionImageView.layer.masksToBounds = true
+        descriptionImageView.layer.cornerRadius = 10
         
         descriptionLabel.text = "Local"  //ver como alinhar com o data source
         descriptionLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        descriptionLabel.textAlignment = .center
+        descriptionLabel.textColor = UIColor(named: K.systemLightGray)
+        descriptionLabel.textAlignment = .justified
         descriptionLabel.numberOfLines = 0
         descriptionLabel.adjustsFontSizeToFitWidth = true
+        
+        
         
         changeSugLabel.text = "Viu algum conteúdo incoerente?"  //ver como alinhar com o data source
         changeSugLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -118,7 +127,7 @@ class HistoryView: UIView {
             //descriptionImageView.trailingAnchor.constraint(equalTo: infoStackView.trailingAnchor),
             descriptionImageView.heightAnchor.constraint(equalToConstant: 205)
         ])
-
+        
         changeSugStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             changeSugStackView.bottomAnchor.constraint(equalTo: primaryContainer.bottomAnchor, constant: -30),

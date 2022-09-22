@@ -52,20 +52,6 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
         
-        //imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            //imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            //imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            //imageView.heightAnchor.constraint(equalToConstant: 74),
-            //imageView.widthAnchor.constraint(equalToConstant: 74)
-        ])
-        
-        //        label.translatesAutoresizingMaskIntoConstraints = false
-        //        NSLayoutConstraint.activate([
-        //            label.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
-        //            label.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
-        //            label.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
-        //        ])
     }
     
     

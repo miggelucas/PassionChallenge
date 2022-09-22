@@ -44,11 +44,10 @@ class DetailsView: UIView {
     
     weak var delegate : DetailViewDelegate?
     
-    
     func draw(place : Place){
         imageView.image = UIImage(named: place.imageURL)
         nameLabel.text = place.name
-        //tagsLabel.text =
+        tagsLabel.text = formatTagsLabel(tags: place.tagCategorie)
         adressLabel.text = place.adress
         historyLabel.text = place.historyArray[0].text
     }
@@ -114,8 +113,9 @@ class DetailsView: UIView {
         adressLabel.text = "Endereço do lugar"
         adressLabel.font = UIFont.systemFont(ofSize: 14)
         tagsLabel.text = "tags do lugar"
+        tagsLabel.textColor = UIColor(named: K.systemBackground)
         
-        imageView.backgroundColor = .blue
+        imageView.backgroundColor = UIColor(named: K.systemLightGray)
         imageView.contentMode = .scaleToFill
         
         addToCalenderButton.setTitle("Adicionar ao Calendário", for: .normal)
@@ -123,7 +123,7 @@ class DetailsView: UIView {
         addToCalenderButton.layer.masksToBounds = true
         addToCalenderButton.layer.cornerRadius = 10
         
-        buttonCallendarContainer.backgroundColor = .green
+        //buttonCallendarContainer.backgroundColor = .green
         historyContainer.backgroundColor = .clear
         //historyButton.backgroundColor = .green
         
@@ -132,9 +132,11 @@ class DetailsView: UIView {
         knowMoreLabel.textColor = UIColor(named: K.systemBackground)
         
         arrowImage.image = UIImage(named: "chevron.right")
+        arrowImage.backgroundColor = .green
         historyLabel.text = "blansandjasndjkasndjkshqwhdjkahdjkhjqwhdbahdwqwhdahsdhqwdhasdasdqwdasdq"
         historyLabel.numberOfLines = 0
-        historyLabel.adjustsFontForContentSizeCategory = true
+        historyLabel.textAlignment = .justified
+        historyLabel.adjustsFontForContentSizeCategory = false
         
         nameSaveStackView.axis = .horizontal
         nameSaveStackView.distribution = .fillProportionally
@@ -145,7 +147,7 @@ class DetailsView: UIView {
         infosStackView.alignment = .fill
         infosStackView.distribution = .fill
         infosStackView.spacing = 12
-        infosStackView.backgroundColor = .gray
+        //infosStackView.backgroundColor = .gray
         
         knowMoreStackView.axis = .horizontal
         knowMoreStackView.alignment = .fill
@@ -156,16 +158,18 @@ class DetailsView: UIView {
         historyStackView.alignment = .fill
         historyStackView.distribution = .fill
         historyStackView.spacing = 8
-        historyStackView.backgroundColor = .purple
+        //historyStackView.backgroundColor = .purple
         
         
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
-        primaryStackView.distribution = .fillEqually
+        primaryStackView.distribution = .fill
         primaryStackView.spacing = 25
-        primaryStackView.backgroundColor = UIColor(named: K.systemLightGray)
+        //primaryStackView.backgroundColor = UIColor(named: K.systemLightGray)
         
-        stackContainer.backgroundColor = .cyan
+        stackContainer.backgroundColor = UIColor(named: K.systemLightGray)
+        stackContainer.layer.masksToBounds = true
+        stackContainer.layer.cornerRadius = 15
     }
     
     
@@ -182,7 +186,7 @@ class DetailsView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: stackContainer.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: stackContainer.topAnchor, constant: 8),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 214)
@@ -204,6 +208,10 @@ class DetailsView: UIView {
             primaryStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25)
         ])
         
+        infosStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            infosStackView.heightAnchor.constraint(equalToConstant: 160)
+        ])
         
         addToCalenderButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -247,7 +255,19 @@ class DetailsView: UIView {
         delegate?.pushNextViewController()
     }
     
-    
+    private func formatTagsLabel(tags : [String]) -> String {
+        var customString : String = ""
+        
+        for tag in tags {
+            if customString == "" {
+                customString = tag
+            } else {
+                customString = customString + " • " + tag
+            }
+        }
+        
+        return customString
+    }
     
 }
 
