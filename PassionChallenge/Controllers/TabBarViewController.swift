@@ -49,12 +49,14 @@ class TabBarViewController: UITabBarController {
             self.navigationControllers.append(navigation)
         }
         
-        //navigationController?.navigationBar.largeTitleTextAttributes =
+
         self.tabBar.unselectedItemTintColor = UIColor(named: K.systemLightGray)
         self.tabBar.tintColor = .orange
         
-
+        //self.tabBar.isTranslucent = false
+        //self.tabBar.backgroundColor = UIColor(named: K.systemBackground)
         
+     
         self.setViewControllers(self.navigationControllers, animated: true)
         
     }

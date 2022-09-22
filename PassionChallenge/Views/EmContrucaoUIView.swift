@@ -21,8 +21,9 @@ class EmContrucaoUIView: UIView {
         self.addSubview(backgroundViewGradient)
         self.addSubview(stackView)
         
-        stackView.addArrangedSubview(cangaceiroView)
+        
         stackView.addArrangedSubview(construcaoLabelArea)
+        stackView.addArrangedSubview(cangaceiroView)
         stackView.addArrangedSubview(construcaoLabelEstamos)
         stackView.addArrangedSubview(construcaoLabelSmile)
         // view recebe background image
@@ -35,12 +36,23 @@ class EmContrucaoUIView: UIView {
     
     func setupViewAttributes(){
         construcaoLabelArea.text = "Área em construção"
+        construcaoLabelArea.textColor = UIColor(named: K.systemBackground)
+        construcaoLabelArea.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        construcaoLabelArea.textAlignment = .center
+        
         construcaoLabelEstamos.text = "Estamos trabalhando para que esta funcionalidade esteja disponível em breve"
         construcaoLabelEstamos.numberOfLines = 0
+        construcaoLabelEstamos.textColor = UIColor(named: K.systemBackground)
+        construcaoLabelEstamos.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        construcaoLabelEstamos.textAlignment = .center
+        
         construcaoLabelSmile.text = ":)"
+        construcaoLabelSmile.textColor = UIColor(named: K.systemBackground)
+        construcaoLabelSmile.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        construcaoLabelSmile.textAlignment = .center
         
         backgroundViewGradient.image = UIImage(named: "gradient1")
-        cangaceiroView.image = UIImage(named: "cangeiro1.png")
+        cangaceiroView.image = UIImage(named: "cangaceiro1")
         backgroundViewGradient.contentMode = .scaleToFill
         cangaceiroView.contentMode = .scaleAspectFit
         
@@ -61,13 +73,19 @@ class EmContrucaoUIView: UIView {
             backgroundViewGradient.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
         
+        cangaceiroView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cangaceiroView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        
         // aqui tu vai ajustar a stack na view
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 20),
+            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -50),
             stackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: 20)
+            stackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
             
 //            stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 //            stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor)

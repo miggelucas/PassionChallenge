@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, HomeViewDelegate {
+class HomeViewController: UIViewController {
     
     let customView = HomeView()
     
@@ -32,18 +32,21 @@ class HomeViewController: UIViewController, HomeViewDelegate {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.tabBarController?.tabBar.isHidden = false
+    }
+}
+
+
+extension HomeViewController : HomeViewDelegate {
     func doSomeAction() {
         let seeMoreViewController = SeeMoreViewController(withPlaces: self.recomendations, withTitleName: "Recomendações")
         self.navigationController?.pushViewController(seeMoreViewController, animated: true)
         //print("aqui eu devo chamar o peform segue")
         
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
 }
-
 
 extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

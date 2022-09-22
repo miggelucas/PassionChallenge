@@ -137,7 +137,8 @@ class HomeView : UIView {
         
         recomendationLabel.textColor = UIColor(named: K.systemLightGray)
         
-        seeMoreButton.setTitle("veja mais", for: .normal)
+        seeMoreButton.setTitle("ver todos", for: .normal)
+        seeMoreButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         seeMoreButton.setTitleColor(.orange, for: .normal)
         //seeMoreButton.backgroundColor = .gray
         recomendationView.backgroundColor = .orange

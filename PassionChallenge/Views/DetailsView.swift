@@ -244,7 +244,7 @@ class DetailsView: UIView {
     
     @objc private func tappedButton(sender: UIButton) {
         print("Usuário clicou no botão")
-        //delegate?.pushNextViewController()
+        delegate?.pushNextViewController()
     }
     
     

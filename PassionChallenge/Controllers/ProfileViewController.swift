@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    let customView = EmContrucaoUIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -16,7 +18,7 @@ class ProfileViewController: UIViewController {
         
         
         view.backgroundColor = .red
-        
+        self.view = customView
         //self.title = "Meu perfil"
     }
 

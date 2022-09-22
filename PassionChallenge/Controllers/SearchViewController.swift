@@ -8,10 +8,13 @@
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    let customView = EmContrucaoUIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        self.view = customView
         //self.title = "Buscar"
         // Do any additional setup after loading the view.
     }

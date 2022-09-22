@@ -7,13 +7,8 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController, DetailViewDelegate {
-    func pushNextViewController() {
-        print("blablabla")
-        //historyView.draw(place.HistoryAray)
-    }
-    
-    
+class DetailsViewController: UIViewController {
+  
     let customView = DetailsView()
     var place : Place?
     
@@ -34,6 +29,7 @@ class DetailsViewController: UIViewController, DetailViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.largeTitleDisplayMode = .never
@@ -42,12 +38,11 @@ class DetailsViewController: UIViewController, DetailViewDelegate {
         customView.draw(place: place!)
 
         customView.delegate = self
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.isHidden = false
     }
     
 
@@ -63,6 +58,14 @@ class DetailsViewController: UIViewController, DetailViewDelegate {
 
 }
 
+
+extension DetailsViewController : DetailViewDelegate {
+    func pushNextViewController() {
+        print("blablabla")
+        navigationController?.pushViewController(HistoryViewController(withPlace: place!), animated: true)
+        
+    }
+}
 
 // MARK: - Preview
 #if DEBUG
