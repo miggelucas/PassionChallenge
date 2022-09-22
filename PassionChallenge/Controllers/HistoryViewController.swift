@@ -10,7 +10,49 @@ import UIKit
 class HistoryViewController: UIViewController {
     
     let customView = HistoryView()
+    
+    var historyViews : [HistoryView]?
     var place : Place?
+    
+    let scrollView = UIScrollView()
+    
+    func setupScrollView(withHistoryViews : [HistoryView]) {
+        scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height:  view.frame.height)
+        scrollView.contentSize = CGSize(width: view.frame.width * Double(withHistoryViews.count ), height: view.frame.height)
+        scrollView.isPagingEnabled = true
+        
+        
+        for i in 0..<withHistoryViews.count{
+            withHistoryViews[i].frame = CGRect(x: view.frame.width * CGFloat(i) , y: 0, width: view.frame.width, height: view.frame.height)
+            scrollView.addSubview(withHistoryViews[i])
+            
+        }
+        
+        scrollView.isPagingEnabled = true
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
+        
+        
+    }
+    
+    
+    func createCustomViews(forPlace : Place) -> [HistoryView] {
+        var customViews : [HistoryView] = []
+        
+        for history in place!.historyArray {
+            let view = HistoryView()
+            view.setupInfo(history: history)
+            customViews.append(view)
+        }
+        
+        return customViews
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +62,8 @@ class HistoryViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         
         customView.setupInfo(history: place!.historyArray[0])
-        self.view = customView
+        self.view.addSubview(scrollView)
+        //self.view = customView
         
         // Do any additional setup after loading the view.
     }
@@ -28,6 +71,7 @@ class HistoryViewController: UIViewController {
     init(withPlace place: Place){
         super.init(nibName: nil, bundle: nil)
         self.place = place
+        self.historyViews = createCustomViews(forPlace: place)
     }
     
     init(){
@@ -39,15 +83,7 @@ class HistoryViewController: UIViewController {
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }
 

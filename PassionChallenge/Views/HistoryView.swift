@@ -9,6 +9,7 @@ import UIKit
 
 class HistoryView: UIView {
     
+    let pageControl = UIPageControl()
     
     let descriptionImageView = UIImageView()
     let descriptionLabel = UILabel()
@@ -38,6 +39,7 @@ class HistoryView: UIView {
         
         
         primaryStackView.addArrangedSubview(infoStackView)
+        //primaryStackView.addArrangedSubview(pageControl)
         primaryStackView.addArrangedSubview(changeSugStackView)
         
         infoStackView.addArrangedSubview(descriptionImageView)

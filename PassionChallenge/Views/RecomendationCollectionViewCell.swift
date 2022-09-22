@@ -98,7 +98,7 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
     
     func aditionalSetup(){
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = 8
     }
     
     
