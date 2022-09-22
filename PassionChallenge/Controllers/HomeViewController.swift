@@ -7,19 +7,20 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeViewDelegate {
     
     let customView = HomeView()
     
     let categories : [Categorie] = Categorie.getCategories()
     let recomendations : [Place] = Place.getRecomendations()
     
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = customView
+        
+
+        
+        customView.delegate = self
         
         customView.categoriesCollection.delegate = self
         customView.categoriesCollection.dataSource = self
@@ -30,7 +31,19 @@ class HomeViewController: UIViewController {
         //self.title = "Bom dia!"
         
     }
+    
+    func doSomeAction() {
+        let seeMoreViewController = SeeMoreViewController(withPlaces: self.recomendations, withTitleName: "Recomendações")
+        self.navigationController?.pushViewController(seeMoreViewController, animated: true)
+        //print("aqui eu devo chamar o peform segue")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
+
 
 extension HomeViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -49,11 +62,9 @@ extension HomeViewController:  UICollectionViewDataSource {
         if collectionView == customView.categoriesCollection {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoriesCollectionViewCell.identifier, for: indexPath) as? CategoriesCollectionViewCell {
                 
-                let categorie = categories[indexPath.item]
+                let categorieIndex = categories[indexPath.item]
                 
-                // implementar função Draw
-                cell.imageView.image = UIImage(named: categorie.imageString)
-                cell.label.text = categorie.name
+                cell.draw(categorie: categorieIndex)
                 
                 return cell
                 
@@ -66,9 +77,7 @@ extension HomeViewController:  UICollectionViewDataSource {
                 
                 let recomendation = recomendations[indexPath.item]
                 
-                cell.imageView.image = UIImage(named: recomendation.imageURL)
-                cell.nameLabel.text = recomendation.name
-                cell.adressLabel.text = recomendation.adress
+                cell.draw(place: recomendation)
                 
                 return cell
                 
@@ -87,13 +96,26 @@ extension HomeViewController:  UICollectionViewDataSource {
 extension HomeViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == customView.categoriesCollection {
-            let categorieSelected = categories[indexPath.item]
-            let categorieString : String = categorieSelected.name
-            print("Usuário cliclou na categoria \(categorieString)")
+            let categorieSelected : Categorie = categories[indexPath.item]
+            
+            let seeMoreViewController = SeeMoreViewController(withPlaces: self.recomendations, withTitleName: categorieSelected.name)
+            //self.navigationController?.navigationBar.prefersLargeTitles = false
+            self.navigationController?.navigationBar.tintColor = .orange
+            self.navigationController?.pushViewController(seeMoreViewController, animated: true)
+            
+            print("Usuário cliclou na categoria \(categorieSelected.name)")
             
         } else if collectionView == customView.recomendationCollection {
             let recomendationSelected = recomendations[indexPath.item]
+            
+            
+            let detailsViewController = DetailsViewController(withPlace: recomendationSelected)
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
+            //self.navigationController?.navigationBar.prefersLargeTitles = false
+            
+            
             print("Usuário cliclou no place \(recomendationSelected)")
+            
         }
     }
 }

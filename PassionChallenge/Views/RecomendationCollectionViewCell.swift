@@ -21,8 +21,16 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
     
     
     let labelsContainer = UIView()
-    // definindo hierarquia de view
     
+    // function to be called in dequeueReusableCell
+    func draw(place : Place){
+        self.imageView.image = UIImage(named: place.imageURL)
+        self.nameLabel.text = place.name
+        self.adressLabel.text = place.adress
+        
+    }
+    
+    // definindo hierarquia de view
     func setupViewHierarchy(){
         self.addSubview(primartStackView)
         
@@ -55,13 +63,13 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
 
         nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
     
-        nameLabel.textColor = UIColor(named: "systemBackground")
+        nameLabel.textColor = UIColor(named: K.systemBackground)
 
         adressLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        adressLabel.textColor = UIColor(named: "systemBackground")
+        adressLabel.textColor = UIColor(named: K.systemBackground)
         
         imageView.contentMode = .scaleToFill
-        labelsContainer.backgroundColor = UIColor(named: "Light Gray Blue")
+        labelsContainer.backgroundColor = UIColor(named: K.systemLightGray)
     }
     
     
@@ -88,6 +96,10 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    func aditionalSetup(){
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+    }
     
     
     override init(frame: CGRect) {
@@ -95,6 +107,7 @@ class RecomendationCollectionViewCell: UICollectionViewCell {
         setupViewHierarchy()
         setupViewAttributes()
         setupConstraints()
+        aditionalSetup()
 
     }
     required init?(coder: NSCoder) {
