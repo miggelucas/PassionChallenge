@@ -114,7 +114,7 @@ extension SeeMoreViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let placeSelected : Place = places[indexPath.row]
+        let placeSelected : Place = places[indexPath.section]
         
         
         let detailsViewController = DetailsViewController(withPlace: placeSelected)
@@ -122,7 +122,7 @@ extension SeeMoreViewController : UITableViewDelegate {
         // self.navigationController?.navigationBar.prefersLargeTitles = false
         
         
-        print("User tocou na celular \(places[indexPath.row])")
+        print("User tocou na celular \(places[indexPath.section])")
     }
 
 

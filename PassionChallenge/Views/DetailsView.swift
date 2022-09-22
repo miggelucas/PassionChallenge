@@ -25,6 +25,8 @@ class DetailsView: UIView {
     let adressLabel = UILabel()
     let addToCalenderButton = UIButton()
     
+    let saveButtonStack = UIStackView()
+    
     let knowMoreLabel = UILabel()
     let arrowImage = UIImageView()
     let historyLabel = UILabel()
@@ -70,8 +72,10 @@ class DetailsView: UIView {
     
     func setupViewHierarchy() {
         
+        saveButtonStack.addArrangedSubview(saveButton)
+        
         nameSaveStackView.addArrangedSubview(nameLabel)
-        nameSaveStackView.addArrangedSubview(saveButton)
+        nameSaveStackView.addArrangedSubview(saveButtonStack)
         
         buttonCallendarContainer.addSubview(addToCalenderButton)
         
@@ -119,15 +123,17 @@ class DetailsView: UIView {
         backgroundImageView.image = UIImage(named: "Background")
         backgroundImageView.contentMode = .scaleToFill
         
+        //saveButtonStack.distribution =
+        
         nameLabel.text = "Nome do lugar"
         nameLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         
 //        saveButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
 //        saveButton.imageView?.contentMode = .scaleAspectFill
         saveButton.image = UIImage(systemName: "bookmark")
-        saveButton.contentMode = .scaleAspectFill
-        //saveButton.tintColor = .clear
-        saveButton.tintColor = UIColor(named: K.systemBackground)
+        saveButton.contentMode = .scaleAspectFit
+        saveButton.tintColor = .clear
+        //saveButton.tintColor = UIColor(named: K.systemBackground)
         //saveButton.backgroundColor = .green
         
         adressLabel.text = "Endereço do lugar"
