@@ -14,9 +14,9 @@ class HistoryView: UIView {
     let descriptionImageView = UIImageView()
     let descriptionLabel = UILabel()
     
-    //let descriptionLabelContainer = UIView()
+    let descriptionLabelStack = UIStackView()
     
-
+    
     
     let infoStackView = UIStackView()
     
@@ -37,13 +37,14 @@ class HistoryView: UIView {
         
         
         primaryStackView.addArrangedSubview(infoStackView)
-        //primaryStackView.addArrangedSubview(pageControl)
-        //primaryStackView.addArrangedSubview(changeSugStackView)
+        
         
         infoStackView.addArrangedSubview(descriptionImageView)
-        infoStackView.addArrangedSubview(descriptionLabel)
+        infoStackView.addArrangedSubview(descriptionLabelStack)
         
-        //descriptionLabelContainer.addSubview(descriptionLabel)
+        
+        descriptionLabelStack.addArrangedSubview(descriptionLabel)
+        
         
     }
     
@@ -61,10 +62,10 @@ class HistoryView: UIView {
         infoStackView.axis = .vertical
         infoStackView.alignment = .fill
         infoStackView.distribution = .fill
-        infoStackView.spacing = 10
+        infoStackView.spacing = 30
         //infoStackView.backgroundColor = .yellow
         
-   
+        
         
         
         //descriptionImageView.backgroundColor = .red
@@ -80,8 +81,10 @@ class HistoryView: UIView {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.adjustsFontSizeToFitWidth = true
         
+        descriptionLabelStack.alignment = .top
+        descriptionLabelStack.distribution = .fill
         
-
+        
         
         
     }
@@ -108,15 +111,11 @@ class HistoryView: UIView {
         descriptionImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             //descriptionImageView.topAnchor.constraint(equalTo: infoStackView.topAnchor),
-//            descriptionImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            //            descriptionImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             //descriptionImageView.leadingAnchor.constraint(equalTo: infoStackView.leadingAnchor),
             //descriptionImageView.trailingAnchor.constraint(equalTo: infoStackView.trailingAnchor),
             descriptionImageView.heightAnchor.constraint(equalToConstant: 205)
         ])
-        
-
-
-        
         
     }
     
