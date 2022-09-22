@@ -16,11 +16,9 @@ class HistoryView: UIView {
     
     //let descriptionLabelContainer = UIView()
     
-    let changeSugLabel = UILabel()
-    let changeSugButton = UIButton()
+
     
     let infoStackView = UIStackView()
-    let changeSugStackView = UIStackView()
     
     let primaryContainer = UIView()
     let primaryStackView = UIStackView()
@@ -40,15 +38,12 @@ class HistoryView: UIView {
         
         primaryStackView.addArrangedSubview(infoStackView)
         //primaryStackView.addArrangedSubview(pageControl)
-        primaryStackView.addArrangedSubview(changeSugStackView)
+        //primaryStackView.addArrangedSubview(changeSugStackView)
         
         infoStackView.addArrangedSubview(descriptionImageView)
         infoStackView.addArrangedSubview(descriptionLabel)
         
         //descriptionLabelContainer.addSubview(descriptionLabel)
-        
-        changeSugStackView.addArrangedSubview(changeSugLabel)
-        changeSugStackView.addArrangedSubview(changeSugButton)
         
     }
     
@@ -69,11 +64,8 @@ class HistoryView: UIView {
         infoStackView.spacing = 10
         //infoStackView.backgroundColor = .yellow
         
-        changeSugStackView.axis = .vertical
-        changeSugStackView.alignment = .center
-        changeSugStackView.distribution = .fillEqually
-        changeSugStackView.spacing = 6
-        //changeSugStackView.backgroundColor = .cyan
+   
+        
         
         //descriptionImageView.backgroundColor = .red
         //descriptionImageView.image = UIImage(named: "paçoalfandega")
@@ -89,16 +81,7 @@ class HistoryView: UIView {
         descriptionLabel.adjustsFontSizeToFitWidth = true
         
         
-        
-        changeSugLabel.text = "Viu algum conteúdo incoerente?"  //ver como alinhar com o data source
-        changeSugLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        changeSugLabel.textColor = UIColor(named: K.systemLightGray)
-        //changeSugLabel.backgroundColor = .gray
-        
-        
-        changeSugButton.setTitle("sugerir alteração", for: .normal)
-        changeSugButton.setTitleColor(UIColor(named: K.systemLightGray), for: .normal)
-        
+
         
         
     }
@@ -108,7 +91,7 @@ class HistoryView: UIView {
         primaryContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             primaryContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
-            primaryContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -5),
+            primaryContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -50),
             primaryContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant:  15),
             primaryContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -15),
         ])
@@ -131,11 +114,7 @@ class HistoryView: UIView {
             descriptionImageView.heightAnchor.constraint(equalToConstant: 205)
         ])
         
-        changeSugStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            changeSugStackView.bottomAnchor.constraint(equalTo: primaryContainer.bottomAnchor, constant: -30),
-            changeSugStackView.heightAnchor.constraint(equalToConstant: 48)
-        ])
+
 
         
         

@@ -9,6 +9,12 @@ import UIKit
 
 class PageHistoryViewController: UIPageViewController {
     
+    let changeSugStackView = UIStackView()
+    
+    let changeSugLabel = UILabel()
+    let changeSugButton = UIButton()
+    
+    
     var pages : [HistoryViewController]?
     
     let pageControl: UIPageControl = {
@@ -57,12 +63,39 @@ class PageHistoryViewController: UIPageViewController {
     func addSubviews(){
         
         self.view.addSubview(pageControl)
+        self.view.addSubview(changeSugStackView)
+        
+        changeSugStackView.addArrangedSubview(changeSugLabel)
+        changeSugStackView.addArrangedSubview(changeSugButton)
+        
+        //changeSugStackView.backgroundColor = .cyan
+        changeSugStackView.axis = .vertical
+        changeSugStackView.alignment = .center
+        changeSugStackView.distribution = .fillEqually
+        changeSugStackView.spacing = 6
+        
+        changeSugLabel.text = "Viu algum conteúdo incoerente?"  //ver como alinhar com o data source
+        changeSugLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        changeSugLabel.textColor = UIColor(named: K.systemLightGray)
+        //changeSugLabel.backgroundColor = .gray
+        
+        
+        changeSugButton.setTitle("sugerir alteração", for: .normal)
+        changeSugButton.setTitleColor(UIColor(named: K.systemLightGray), for: .normal)
         
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             pageControl.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             pageControl.heightAnchor.constraint(equalToConstant: 40),
-            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -90)
+            pageControl.bottomAnchor.constraint(equalTo: changeSugStackView.topAnchor, constant: -5)
+        ])
+        
+        
+        changeSugStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            changeSugStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
+            changeSugStackView.heightAnchor.constraint(equalToConstant: 48),
+            changeSugStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
