@@ -126,8 +126,8 @@ class DetailsView: UIView {
 //        saveButton.imageView?.contentMode = .scaleAspectFill
         saveButton.image = UIImage(systemName: "bookmark")
         saveButton.contentMode = .scaleAspectFill
-        saveButton.tintColor = .clear
-        //saveButton.tintColor = UIColor(named: K.systemBackground)
+        //saveButton.tintColor = .clear
+        saveButton.tintColor = UIColor(named: K.systemBackground)
         //saveButton.backgroundColor = .green
         
         adressLabel.text = "Endereço do lugar"
