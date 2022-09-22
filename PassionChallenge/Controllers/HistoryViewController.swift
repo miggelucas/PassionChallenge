@@ -18,6 +18,7 @@ class HistoryViewController: UIViewController {
     
     
     func setupScrollView(withHistoryViews : [HistoryView]) {
+        
         scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height:  view.frame.height)
         scrollView.contentSize = CGSize(width: view.frame.width * Double(withHistoryViews.count ), height: view.frame.height)
         scrollView.isPagingEnabled = true
@@ -26,7 +27,6 @@ class HistoryViewController: UIViewController {
         for i in 0..<withHistoryViews.count{
             withHistoryViews[i].frame = CGRect(x: view.frame.width * CGFloat(i) , y: 0, width: view.frame.width, height: view.frame.height)
             scrollView.addSubview(withHistoryViews[i])
-            
         }
     
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,8 @@ class HistoryViewController: UIViewController {
             scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            scrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            scrollView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            scrollView.widthAnchor.constraint(equalTo: self.view.widthAnchor)
         ])
         
         

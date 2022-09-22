@@ -14,8 +14,6 @@ class DetailsViewController: UIViewController {
     // Components
     let customView = DetailsView()
     var place : Place?
-    
-    
     let eventStore = EKEventStore()
     
     
@@ -42,7 +40,7 @@ class DetailsViewController: UIViewController {
         
         self.view = customView
         customView.draw(place: place!)
-
+        
         customView.delegate = self
         
     }
@@ -51,17 +49,17 @@ class DetailsViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension DetailsViewController : EKEventEditViewDelegate {
@@ -77,20 +75,20 @@ extension DetailsViewController : DetailViewDelegate {
     func callCalendar() {
         print("1 2 3 testando calendar")
         eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
-                   DispatchQueue.main.async {
-                       if (granted) && (error == nil) {
-                           let event = EKEvent(eventStore: self.eventStore)
-                           event.title = self.place?.name
-                           event.url = URL(string: "https://apple.com")
-                           let eventController = EKEventEditViewController()
-                           eventController.event = event
-                           eventController.eventStore = self.eventStore
-                           eventController.editViewDelegate = self
-                           self.present(eventController, animated: true, completion: nil)
-                           
-                       }
-                   }
-               })
+            DispatchQueue.main.async {
+                if (granted) && (error == nil) {
+                    let event = EKEvent(eventStore: self.eventStore)
+                    event.title = self.place?.name
+                    event.url = URL(string: "https://apple.com")
+                    let eventController = EKEventEditViewController()
+                    eventController.event = event
+                    eventController.eventStore = self.eventStore
+                    eventController.editViewDelegate = self
+                    self.present(eventController, animated: true, completion: nil)
+                    
+                }
+            }
+        })
     }
     
     func pushNextViewController() {
