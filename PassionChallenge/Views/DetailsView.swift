@@ -246,13 +246,19 @@ class DetailsView: UIView {
     }
     
     func setupAdditionalConfiguration(){
-        historyButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+        historyButton.addTarget(self, action: #selector(tappedHistoryButton), for: .touchUpInside)
+        addToCalenderButton.addTarget(self, action: #selector(tappedCalendarButton), for: .touchUpInside)
     }
     
     
-    @objc private func tappedButton(sender: UIButton) {
+    @objc private func tappedHistoryButton(sender: UIButton) {
         print("Usuário clicou no botão")
         delegate?.pushNextViewController()
+    }
+    
+    @objc private func tappedCalendarButton(sender: UIButton) {
+        print("Usuário clicou no botão")
+        delegate?.callCalendar()
     }
     
     private func formatTagsLabel(tags : [String]) -> String {

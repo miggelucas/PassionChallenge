@@ -9,6 +9,9 @@ import Foundation
 
 
 protocol DetailViewDelegate : AnyObject {
+    // for history button
     func pushNextViewController()
     
+    // for addToCalendar Button
+    func callCalendar()
 }

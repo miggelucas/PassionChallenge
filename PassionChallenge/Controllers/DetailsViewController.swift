@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import EventKit
+import EventKitUI
 
 class DetailsViewController: UIViewController {
-  
+    
+    // Components
     let customView = DetailsView()
     var place : Place?
+    
+    
+    let eventStore = EKEventStore()
     
     
     init(withPlace place: Place){
@@ -58,10 +64,37 @@ class DetailsViewController: UIViewController {
 
 }
 
+extension DetailsViewController : EKEventEditViewDelegate {
+    func eventEditViewController(_ controller: EKEventEditViewController, didCompleteWith action: EKEventEditViewAction) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+}
+
 
 extension DetailsViewController : DetailViewDelegate {
+    func callCalendar() {
+        print("1 2 3 testando calendar")
+        eventStore.requestAccess( to: EKEntityType.event, completion:{(granted, error) in
+                   DispatchQueue.main.async {
+                       if (granted) && (error == nil) {
+                           let event = EKEvent(eventStore: self.eventStore)
+                           event.title = self.place?.name
+                           event.url = URL(string: "https://apple.com")
+                           let eventController = EKEventEditViewController()
+                           eventController.event = event
+                           eventController.eventStore = self.eventStore
+                           eventController.editViewDelegate = self
+                           self.present(eventController, animated: true, completion: nil)
+                           
+                       }
+                   }
+               })
+    }
+    
     func pushNextViewController() {
-        print("blablabla")
+        //print("blablabla")
         navigationController?.pushViewController(HistoryViewController(withPlace: place!), animated: true)
         
     }
