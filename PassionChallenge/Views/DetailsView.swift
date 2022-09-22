@@ -19,7 +19,8 @@ class DetailsView: UIView {
     
     let imageView = UIImageView()
     let nameLabel = UILabel()
-    let saveButton = UIButton(type: .custom)
+    //let saveButton = UIButton(type: .custom)
+    let saveButton = UIImageView()
     let tagsLabel = UILabel()
     let adressLabel = UILabel()
     let addToCalenderButton = UIButton()
@@ -106,9 +107,12 @@ class DetailsView: UIView {
         nameLabel.text = "Nome do lugar"
         nameLabel.font = UIFont.systemFont(ofSize: 26, weight: .bold)
         
-        saveButton.setImage(UIImage(named: "bookmark"), for: .normal)
-        saveButton.tintColor = .black
-        saveButton.backgroundColor = .green
+//        saveButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+//        saveButton.imageView?.contentMode = .scaleAspectFill
+        saveButton.image = UIImage(systemName: "bookmark")
+        saveButton.contentMode = .scaleAspectFill
+        saveButton.tintColor = UIColor(named: K.systemBackground)
+        //saveButton.backgroundColor = .green
         
         adressLabel.text = "Endereço do lugar"
         adressLabel.font = UIFont.systemFont(ofSize: 14)
@@ -131,15 +135,16 @@ class DetailsView: UIView {
         knowMoreLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         knowMoreLabel.textColor = UIColor(named: K.systemBackground)
         
-        arrowImage.image = UIImage(named: "chevron.right")
-        arrowImage.backgroundColor = .green
-        historyLabel.text = "blansandjasndjkasndjkshqwhdjkahdjkhjqwhdbahdwqwhdahsdhqwdhasdasdqwdasdq"
+        arrowImage.image = UIImage(systemName: "chevron.right")
+        arrowImage.tintColor = UIColor(named: K.systemBackground)
+        //arrowImage.backgroundColor = .green
+        historyLabel.text = "placeholder para historyLabel"
         historyLabel.numberOfLines = 0
         historyLabel.textAlignment = .justified
         historyLabel.adjustsFontForContentSizeCategory = false
         
         nameSaveStackView.axis = .horizontal
-        nameSaveStackView.distribution = .fillProportionally
+        nameSaveStackView.distribution = .fill
         nameSaveStackView.alignment = .fill
         
         
@@ -226,6 +231,17 @@ class DetailsView: UIView {
         NSLayoutConstraint.activate([
             knowMoreStackView.heightAnchor.constraint(equalToConstant: 24)
         ])
+        
+//        nameSaveStackView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            nameSaveStackView.heightAnchor.constraint(equalToConstant: 50)
+//        ])
+        
+//        saveButton.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            saveButton.heightAnchor.constraint(equalToConstant: 60),
+//            saveButton.widthAnchor.constraint(equalToConstant: 60)
+//        ])
         
         historyStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

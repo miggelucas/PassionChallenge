@@ -13,8 +13,8 @@ class PageHistoryViewController: UIPageViewController {
     
     let pageControl: UIPageControl = {
         let page = UIPageControl()
-        page.currentPageIndicatorTintColor = .yellow
-        page.pageIndicatorTintColor = .cyan
+        page.currentPageIndicatorTintColor = UIColor(named: K.systemLightGray)
+        page.pageIndicatorTintColor = .gray
         page.currentPage = 0
         return page
     }()
@@ -45,6 +45,8 @@ class PageHistoryViewController: UIPageViewController {
         self.view.backgroundColor = .green
         dataSource = self
         delegate = self
+        
+        self.title = "Conheça a história"
         
         setupAdditionalConfiguration()
         addSubviews()

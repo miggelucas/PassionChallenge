@@ -73,9 +73,9 @@ class HistoryView: UIView {
         changeSugStackView.alignment = .center
         changeSugStackView.distribution = .fillEqually
         changeSugStackView.spacing = 6
-        changeSugStackView.backgroundColor = .cyan
+        //changeSugStackView.backgroundColor = .cyan
         
-        descriptionImageView.backgroundColor = .red
+        //descriptionImageView.backgroundColor = .red
         //descriptionImageView.image = UIImage(named: "paçoalfandega")
         descriptionImageView.contentMode = .scaleToFill
         descriptionImageView.layer.masksToBounds = true
@@ -92,11 +92,12 @@ class HistoryView: UIView {
         
         changeSugLabel.text = "Viu algum conteúdo incoerente?"  //ver como alinhar com o data source
         changeSugLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        changeSugLabel.backgroundColor = .gray
+        changeSugLabel.textColor = UIColor(named: K.systemLightGray)
+        //changeSugLabel.backgroundColor = .gray
         
         
         changeSugButton.setTitle("sugerir alteração", for: .normal)
-        changeSugButton.setTitleColor(.red, for: .normal)
+        changeSugButton.setTitleColor(UIColor(named: K.systemLightGray), for: .normal)
         
         
         
