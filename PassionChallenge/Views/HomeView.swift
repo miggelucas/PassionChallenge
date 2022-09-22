@@ -132,7 +132,7 @@ class HomeView : UIView {
         categoriesLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         
         recomendationLabel.text = "Recomendações"
-        recomendationLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        recomendationLabel.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         recomendationLabel.adjustsFontSizeToFitWidth = true
         
         recomendationLabel.textColor = UIColor(named: K.systemLightGray)
