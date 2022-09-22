@@ -38,11 +38,18 @@ class DetailsViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         navigationItem.largeTitleDisplayMode = .never
         
+        let sharebutton = UIBarButtonItem(barButtonSystemItem:.action, target: self, action: #selector(shareButtonPressed))
+               self.navigationItem.rightBarButtonItem = sharebutton
+        
         self.view = customView
         customView.draw(place: place!)
         
         customView.delegate = self
         
+    }
+    
+    @objc private func shareButtonPressed(sender: UIButton) {
+        print("Usuário cliclou no sharebutton")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
