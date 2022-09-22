@@ -53,6 +53,24 @@ class TabBarViewController: UITabBarController {
 
         self.tabBar.unselectedItemTintColor = UIColor(named: K.systemLightGray)
         self.tabBar.tintColor = .orange
+       
+        
+
+        
+        
+//        let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+//        tabBarAppearance.backgroundEffect = UIBlurEffect(style: .regular)
+//        tabBarAppearance.backgroundColor = UIColor(named: K.systemBackground)
+//        tabBarAppearance
+       
+        //UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        self.tabBar.backgroundColor = UIColor(named: K.systemBackground)
+        UITabBar.appearance().isOpaque = false
+        UITabBar.appearance().isTranslucent = true
+        
+//        self.tabBar.isTranslucent = true
+//        self.tabBar.alpha = 0.5
+        
         
         //self.tabBar.isTranslucent = false
         //self.tabBar.backgroundColor = UIColor(named: K.systemBackground)

@@ -33,6 +33,7 @@ class SeeMoreViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.largeTitleDisplayMode = .never
+        self.tabBarController?.tabBar.isHidden = true
 
         
         self.view = customView
