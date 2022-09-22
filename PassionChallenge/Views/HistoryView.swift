@@ -60,13 +60,13 @@ class HistoryView: UIView {
         primaryStackView.axis = .vertical
         primaryStackView.alignment = .fill
         primaryStackView.distribution = .fill
-        primaryStackView.spacing = 15
+        primaryStackView.spacing = 30
         //primaryStackView.backgroundColor = .green
         
         infoStackView.axis = .vertical
         infoStackView.alignment = .fill
         infoStackView.distribution = .fill
-        infoStackView.spacing = 5
+        infoStackView.spacing = 10
         //infoStackView.backgroundColor = .yellow
         
         changeSugStackView.axis = .vertical
@@ -107,7 +107,7 @@ class HistoryView: UIView {
         primaryContainer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             primaryContainer.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
-            primaryContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            primaryContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -5),
             primaryContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant:  15),
             primaryContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant:  -15),
         ])
@@ -139,14 +139,6 @@ class HistoryView: UIView {
         
         
     }
-    
-    /*
-     // Only override draw() if you perform custom drawing.
-     // An empty implementation adversely affects performance during animation.
-     override func draw(_ rect: CGRect) {
-     // Drawing code
-     }
-     */
     
     
     override init(frame: CGRect) {

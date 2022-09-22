@@ -12,7 +12,7 @@
 		17A4865D28D50E3F000837BD /* SeeMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4865C28D50E3F000837BD /* SeeMoreView.swift */; };
 		17A4865F28D50E48000837BD /* SeeMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4865E28D50E48000837BD /* SeeMoreTableViewCell.swift */; };
 		17A4866128D8BCF2000837BD /* HomeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4866028D8BCF2000837BD /* HomeViewDelegate.swift */; };
-		17A4D47428DCCD9900CFC03A /* HistoryScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4D47328DCCD9900CFC03A /* HistoryScrollView.swift */; };
+		17A4D47628DCD2F200CFC03A /* PageHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4D47528DCD2F200CFC03A /* PageHistoryViewController.swift */; };
 		17BF90B028D3AB8900F016EC /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90AF28D3AB8900F016EC /* Place.swift */; };
 		17BF90B228D3ABF500F016EC /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B128D3ABF500F016EC /* History.swift */; };
 		17BF90B628D3AEF600F016EC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BF90B528D3AEF600F016EC /* Constants.swift */; };
@@ -46,7 +46,7 @@
 		17A4865C28D50E3F000837BD /* SeeMoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeMoreView.swift; sourceTree = "<group>"; };
 		17A4865E28D50E48000837BD /* SeeMoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeMoreTableViewCell.swift; sourceTree = "<group>"; };
 		17A4866028D8BCF2000837BD /* HomeViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDelegate.swift; sourceTree = "<group>"; };
-		17A4D47328DCCD9900CFC03A /* HistoryScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScrollView.swift; sourceTree = "<group>"; };
+		17A4D47528DCD2F200CFC03A /* PageHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHistoryViewController.swift; sourceTree = "<group>"; };
 		17BF90AF28D3AB8900F016EC /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		17BF90B128D3ABF500F016EC /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		17BF90B528D3AEF600F016EC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -97,6 +97,7 @@
 				17EDEA1B28CFACB700421C42 /* SearchViewController.swift */,
 				17BF90B728D3B46900F016EC /* DetailsViewController.swift */,
 				17DE4C4B28DBA7B6000E1EB7 /* HistoryViewController.swift */,
+				17A4D47528DCD2F200CFC03A /* PageHistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -128,7 +129,6 @@
 				17EDEA0A28CF9FE900421C42 /* LaunchScreen.storyboard */,
 				17A4866028D8BCF2000837BD /* HomeViewDelegate.swift */,
 				17DE4C4728DB89C0000E1EB7 /* DetailViewDelegate.swift */,
-				17A4D47328DCCD9900CFC03A /* HistoryScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,7 +252,6 @@
 				17DE4C4A28DB9E3B000E1EB7 /* EmContrucaoUIView.swift in Sources */,
 				17DE4C4C28DBA7B6000E1EB7 /* HistoryViewController.swift in Sources */,
 				17A4865B28D50E32000837BD /* SeeMoreViewController.swift in Sources */,
-				17A4D47428DCCD9900CFC03A /* HistoryScrollView.swift in Sources */,
 				17EDEA0728CF9FE800421C42 /* PassionChallenge.xcdatamodeld in Sources */,
 				17A4866128D8BCF2000837BD /* HomeViewDelegate.swift in Sources */,
 				17EDEA1528CFA23300421C42 /* UIViewController+Preview.swift in Sources */,
@@ -266,6 +265,7 @@
 				17EDEA1828CFA60100421C42 /* TabBarViewController.swift in Sources */,
 				17BF90B628D3AEF600F016EC /* Constants.swift in Sources */,
 				17DE4C4E28DBA7DA000E1EB7 /* HistoryView.swift in Sources */,
+				17A4D47628DCD2F200CFC03A /* PageHistoryViewController.swift in Sources */,
 				17BF90BA28D3B4CD00F016EC /* DetailsView.swift in Sources */,
 				17EDEA2028CFCBD900421C42 /* CategoriesModel.swift in Sources */,
 				17EDEA4728D2115700421C42 /* Categoires+Extension.swift in Sources */,
