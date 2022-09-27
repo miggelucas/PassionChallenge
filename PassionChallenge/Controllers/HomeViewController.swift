@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.view = customView
         
-
+        
         
         customView.delegate = self
         
@@ -93,44 +93,49 @@ extension HomeViewController:  UICollectionViewDataSource {
     
     
 }
-    
+
 
 
 extension HomeViewController : UICollectionViewDelegate {
+    
+    func getPlaces(forCategorie categorie : String) -> [Place] {
+        
+        switch categorie{
+        case K.artesanato:
+            return Place.getArtesanato()
+        case K.culinaria:
+            return Place.getCulinaria()
+        case K.literatura:
+            return Place.getLiteratura()
+        case K.historia:
+            return Place.getHistoria()
+        case K.teatro:
+            return Place.getTeatro()
+        case K.cinema:
+            return Place.getCinema()
+        case K.aoArLivre:
+            return Place.getAoArLivre()
+        case K.musica:
+            return Place.getMusica()
+        default:
+            return Place.getRecomendations()
+        }
+        
+    }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == customView.categoriesCollection {
             
             
             let categorieSelected : String = categories[indexPath.item].name
             
-            var places : [Place] = []
-            
-            switch categorieSelected{
-            case K.artesanato:
-                places = Place.getArtesanato()
-            case K.culinaria:
-                places = Place.getCulinaria()
-            case K.literatura:
-                places = Place.getLiteratura()
-            case K.historia:
-                places = Place.getHistoria()
-            case K.teatro:
-                places = Place.getTeatro()
-            case K.cinema:
-                places = Place.getCinema()
-            case K.aoArLivre:
-                places = Place.getAoArLivre()
-            case K.musica:
-                places = Place.getMusica()
-                
-                
-            default:
-                places = Place.getRecomendations()
-            }
+            let places : [Place] = getPlaces(forCategorie: categorieSelected)
             
             let seeMoreViewController = SeeMoreViewController(withPlaces: places, withTitleName: categorieSelected)
             //self.navigationController?.navigationBar.prefersLargeTitles = false
-
+            
             self.navigationController?.pushViewController(seeMoreViewController, animated: true)
             
             print("Usuário cliclou na categoria \(categorieSelected)")
@@ -151,19 +156,19 @@ extension HomeViewController : UICollectionViewDelegate {
 }
 
 
-    // MARK: - Preview
+// MARK: - Preview
 #if DEBUG
-    import SwiftUI
-    
-    @available(iOS 13, *)
-    struct HomeViewController_Preview: PreviewProvider {
-        static var previews: some View {
-            // view controller using programmatic UI
-            Group {
-                HomeViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
-                HomeViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
-            }
+import SwiftUI
+
+@available(iOS 13, *)
+struct HomeViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        // view controller using programmatic UI
+        Group {
+            HomeViewController().showPreview().previewDevice("iPhone SE (3rd generation)")
+            HomeViewController().showPreview().previewDevice("iPhone SE (3rd generation)").previewInterfaceOrientation(.landscapeRight)
         }
     }
+}
 #endif
-    
+
