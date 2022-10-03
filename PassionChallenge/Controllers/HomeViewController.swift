@@ -98,40 +98,13 @@ extension HomeViewController:  UICollectionViewDataSource {
 
 extension HomeViewController : UICollectionViewDelegate {
     
-    func getPlaces(forCategorie categorie : String) -> [Place] {
-        
-        switch categorie{
-        case K.artesanato:
-            return Place.getArtesanato()
-        case K.culinaria:
-            return Place.getCulinaria()
-        case K.literatura:
-            return Place.getLiteratura()
-        case K.historia:
-            return Place.getHistoria()
-        case K.teatro:
-            return Place.getTeatro()
-        case K.cinema:
-            return Place.getCinema()
-        case K.aoArLivre:
-            return Place.getAoArLivre()
-        case K.musica:
-            return Place.getMusica()
-        default:
-            return Place.getRecomendations()
-        }
-        
-    }
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == customView.categoriesCollection {
             
             
             let categorieSelected : String = categories[indexPath.item].name
             
-            let places : [Place] = getPlaces(forCategorie: categorieSelected)
+            let places : [Place] = Categorie.getPlaces(forCategorie: categorieSelected)
             
             let seeMoreViewController = SeeMoreViewController(withPlaces: places, withTitleName: categorieSelected)
             //self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -145,7 +118,8 @@ extension HomeViewController : UICollectionViewDelegate {
             
             
             let detailsViewController = DetailsViewController(withPlace: recomendationSelected)
-            self.navigationController?.pushViewController(detailsViewController, animated: true)
+            //self.navigationController?.pushViewController(detailsViewController, animated: true)
+            self.present(detailsViewController, animated: true)
             //self.navigationController?.navigationBar.prefersLargeTitles = false
             
             

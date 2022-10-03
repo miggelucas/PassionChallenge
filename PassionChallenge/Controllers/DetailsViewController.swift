@@ -102,7 +102,9 @@ extension DetailsViewController : DetailViewDelegate {
         //print("blablabla")
         //navigationController?.pushViewController(HistoryViewController(withPlace: place!), animated: true)
         let historyViewControllers : [HistoryViewController] = PageHistoryViewController.setupViewControllers(withPlace: place!)
-        navigationController?.pushViewController(PageHistoryViewController(withPages: historyViewControllers),animated: true)
+        let pageHistoryViewController : PageHistoryViewController = PageHistoryViewController(withPages: historyViewControllers)
+        //navigationController?.pushViewController(pageHistoryViewController, animated: true)
+        self.present(pageHistoryViewController, animated: true)
     }
 }
 
