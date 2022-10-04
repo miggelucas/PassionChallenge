@@ -118,8 +118,10 @@ extension HomeViewController : UICollectionViewDelegate {
             
             
             let detailsViewController = DetailsViewController(withPlace: recomendationSelected)
-            //self.navigationController?.pushViewController(detailsViewController, animated: true)
-            self.present(detailsViewController, animated: true)
+            self.navigationController?.pushViewController(detailsViewController, animated: true)
+            
+            // present modal, mas perde o sharebutton no navigation
+            //self.present(detailsViewController, animated: true)
             //self.navigationController?.navigationBar.prefersLargeTitles = false
             
             
